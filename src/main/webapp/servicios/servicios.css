@@ -1,0 +1,522 @@
+@import "../assets/fonts/fuentes.css";
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-acento: #FC6471;
+    --color-fondo: #000411;
+}
+
+
+/*pantalla de carga*/
+
+.outer-loader {
+    width: auto;
+    height: 100vh;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-fondo);
+}
+
+.inner-loader-img {
+    text-align: center;
+    background-size: contain;
+    height: 40%;
+    width: 40%;
+}
+
+.text_loader {
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    padding: 35px;
+    font-family: 'Trueno ExtraBold Italic';
+    font-size: 3.7vw;
+    color: var(--color-acento);
+}
+
+
+/*barra de desplazamiento*/
+
+::-webkit-scrollbar {
+    width: 20px;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 90px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-acento);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+body {
+    overflow: overlay;
+    overflow-x: hidden;
+    background-color: var(--color-fondo);
+}
+
+nav {
+    position: relative;
+    top: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    background-color: var(--color-fondo);
+    padding: 0%;
+    margin: 0%;
+}
+
+.seccion_homepage {
+    display: inline-block;
+    position: relative;
+    font-family: 'Trueno ExtraBold Outline Italic';
+    font-size: 3.7vw;
+}
+
+.seccion_homepage a {
+    display: inline-block;
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    padding: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all .3s;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+}
+
+.seccion_homepage a:hover {
+    background: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+.resto_de_secciones {
+    position: relative;
+    float: right;
+}
+
+.seccion_normal,
+.seccion_destacada {
+    display: inline-block;
+    position: relative;
+    font-family: 'Trueno Bold';
+    font-size: 1.7vw;
+}
+
+.seccion_normal a {
+    display: inline-block;
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    padding: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.seccion_normal a:hover {
+    margin-right: 30px;
+}
+
+.seccion_destacada a {
+    display: inline-block;
+    color: var(--color-fondo);
+    background: var(--color-acento);
+    padding: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    transition: all .3s ease-in-out;
+}
+
+.seccion_destacada a:hover {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.titulo_seccion {
+    color: var(--color-acento);
+    background: var(--color-fondo);
+    display: block;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    font-family: 'Trueno ExtraBold';
+    font-size: 3.2vw;
+    padding-left: 2vw;
+    width: 100%;
+}
+
+.tarifas {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    align-content: center;
+    background-color: var(--color-fondo);
+}
+
+.tarifa {
+    display: flex;
+    flex-flow: column wrap;
+    color: var(--color-fondo);
+    background-color: var(--color-acento);
+    padding: 1.5vw;
+    border-radius: 5vw;
+    animation: slideUp .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: both;
+}
+
+#tarifa1 {
+    animation-delay: 1s;
+}
+
+#tarifa2 {
+    animation-delay: 1.2s;
+}
+
+#tarifa3 {
+    animation-delay: 1.4s;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%) scale(0);
+    }
+    100% {
+        transform: translateY(0%) scale(1);
+    }
+}
+
+.tarifa h2 {
+    width: auto;
+    display: block;
+    background-color: var(--color-fondo);
+    color: #FC6471;
+    padding: 1.5vw;
+    border-radius: 90px;
+    text-align: center;
+    font-family: "Trueno Bold Outline";
+    font-size: 2.5vw;
+}
+
+.tarifa ul {
+    width: 25vw;
+    display: block;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    padding-left: 2vw;
+    list-style-position: inside;
+    font-family: "Trueno Regular";
+    font-size: 1.5vw;
+}
+
+.precio_tarifa {
+    text-align: center;
+    font-family: "Trueno Bold";
+    font-size: 2.5vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    padding: 1.5vw;
+    border-radius: 90px;
+}
+
+.reserva_y_formulario {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    background-color: var(--color-fondo);
+}
+
+.decoracion_formulario {
+    font-family: "Trueno ExtraBold";
+    font-size: 3vw;
+    width: 50vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+}
+
+.decoracion_formulario h2 {
+    padding: 2vw;
+}
+
+.decoracion_formulario img {
+    margin-top: 3vw;
+    height: 33vw;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+    filter: saturate(0%);
+}
+
+#formulario_reserva {
+    margin-right: 5vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    padding: 1vw;
+    border: 10px solid var(--color-acento);
+    border-radius: 90px;
+}
+
+#formulario_reserva h2 {
+    padding: .5vw;
+    padding-bottom: 1.5vw;
+    font-family: "Trueno Bold";
+}
+
+#cuerpo_formulario_reserva {
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    border-radius: 60px;
+    padding: 2vw;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#cuerpo_formulario_reserva input {
+    padding: .5vw;
+    border-radius: 90px;
+    border: 5px solid var(--color-acento);
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    font-family: "Trueno Bold";
+}
+
+#cuerpo_formulario_reserva ul {
+    text-align: justify;
+    list-style-type: none;
+    margin-top: .2vw;
+    margin-bottom: 1vw;
+}
+
+#cuerpo_formulario_reserva ul li {
+    list-style-type: none;
+    padding: .2vw;
+}
+
+#cuerpo_formulario_reserva ul li label {
+    margin-left: .5vw;
+    font-family: "Trueno Bold";
+}
+
+#cuerpo_formulario_reserva input::placeholder {
+    color: var(--color-acento);
+}
+
+#cuerpo_formulario_reserva p {
+    padding: 1vw;
+    padding-left: 0vw;
+    font-family: "Trueno Bold";
+    font-size: 1vw;
+}
+
+.salas {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.sala {
+    width: 7vw;
+    border: 5px solid var(--color-acento);
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    padding: .5vw;
+    margin-left: .5vw;
+    margin-right: .5vw;
+    border-radius: 30px;
+    font-family: "Trueno Bold";
+    text-align: center;
+}
+
+.sala img {
+    border-radius: 30px;
+    width: 7vw;
+    height: 7vw;
+    filter: saturate(0%);
+}
+
+#cuerpo_formulario_reserva input[type=submit] {
+    display: inline-block;
+    position: relative;
+    padding: 1vw;
+    margin: 1vw;
+    margin-bottom: .5vw;
+    font-size: 1.5vw;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+
+/*--------------------------------------------------------------------------------*/
+
+
+/*Preguntas y respuestas*/
+
+.preguntas_y_respuestas {
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.pregunta_respuesta {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: center;
+    width: 60%;
+}
+
+.pregunta {
+    display: none;
+    width: 40%;
+    font-family: "Trueno Bold";
+    font-size: 2vw;
+    padding: 2vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+.flecha_pregunta {
+    stroke: var(--color-acento);
+    transform: rotate(180deg);
+}
+
+.respuesta {
+    display: block;
+    width: 40%;
+    font-family: "Trueno Bold";
+    font-size: 2vw;
+    padding: 2vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+@keyframes mover_flecha_pregunta {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-40%);
+    }
+}
+
+@keyframes desvelar {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes desvanecer {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+#formulario_incidencias {
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    border: 10px solid var(--color-acento);
+    background-color: var(--color-fondo);
+    border-radius: 40px;
+    padding: .5vw;
+    background-color: var(--color-fondo);
+}
+
+#formulario_incidencias * {
+    padding: .5vw;
+    margin: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 1.5vw;
+    border-radius: 90px;
+    border: 5px solid var(--color-acento);
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    font-family: "Trueno Bold";
+}
+
+#formulario_incidencias textarea {
+    border-radius: 20px;
+}
+
+#formulario_incidencias *::placeholder {
+    color: var(--color-acento);
+}
+
+#formulario_incidencias input[type=submit] {
+    display: inline-block;
+    position: relative;
+    padding: 1vw;
+    margin: 1vw;
+    margin-bottom: .5vw;
+    font-size: 1.5vw;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+footer {
+    position: absolute;
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    width: 100%;
+    margin-top: 2vw;
+    margin-bottom: 0%;
+    border-top-left-radius: 90px;
+}
+
+.texto_centrado_footer {
+    display: inline-block;
+    position: relative;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    font-family: "Trueno Light";
+    font-size: 1.5vw;
+    margin-left: 30vw;
+}
+
+footer div {
+    float: right;
+    font-family: 'Trueno ExtraBold Outline Italic';
+    font-size: 3.7vw;
+    transform: all .5s;
+}
+
+.logo {
+    margin-right: 1.5vw;
+}

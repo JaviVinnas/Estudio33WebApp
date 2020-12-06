@@ -1,0 +1,435 @@
+@import "../assets/fonts/fuentes.css";
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-acento: #A1FCDF;
+    --color-fondo: #000411;
+}
+
+
+/*barra de desplazamiento*/
+
+::-webkit-scrollbar {
+    width: 20px;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 90px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-acento);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+
+/*parámetros del body*/
+
+body {
+    overflow: overlay;
+    overflow-x: hidden;
+    background-color: var(--color-fondo);
+}
+
+
+/*barra de navegacion*/
+
+nav {
+    position: relative;
+    top: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    background-color: var(--color-fondo);
+    padding: 0%;
+    margin: 0%;
+}
+
+.seccion_homepage {
+    display: inline-block;
+    position: relative;
+    font-family: 'Trueno ExtraBold Outline Italic';
+    font-size: 3.7vw;
+}
+
+.seccion_homepage a {
+    display: inline-block;
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    padding: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all .3s;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+}
+
+.seccion_homepage a:hover {
+    background: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+.resto_de_secciones {
+    position: relative;
+    float: right;
+}
+
+.seccion_normal,
+.seccion_destacada {
+    display: inline-block;
+    position: relative;
+    font-family: 'Trueno Bold';
+    font-size: 1.7vw;
+}
+
+.seccion_normal a {
+    display: inline-block;
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    padding: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.seccion_normal a:hover {
+    margin-right: 30px;
+}
+
+.seccion_destacada a {
+    display: inline-block;
+    color: var(--color-fondo);
+    background: var(--color-acento);
+    padding: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    transition: all .3s ease-in-out;
+}
+
+.seccion_destacada a:hover {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.titulo_seccion {
+    color: var(--color-acento);
+    background: var(--color-fondo);
+    display: block;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    font-family: 'Trueno ExtraBold';
+    font-size: 3.2vw;
+    padding-left: 2vw;
+    width: 100%;
+}
+
+
+/*seccion de salas*/
+
+.salas_seccion {
+    background-color: var(--color-fondo);
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.salas_seccion p {
+    margin: 2vw;
+    font-family: "Trueno Bold italic";
+    font-size: 2.5vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+}
+
+.salas {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.info_sala {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3vw;
+    z-index: 0;
+    animation: desde_la_izquierda cubic-bezier(0.165, 0.84, 0.44, 1) .5s;
+    animation-fill-mode: both;
+}
+
+@keyframes desde_la_izquierda {
+    0% {
+        transform: translateX(-100%) scale(0);
+    }
+    100% {
+        transform: translateX(0%) scale(1);
+    }
+}
+
+.numero_sala {
+    display: inline-block;
+    font-family: "Trueno Black italic";
+    font-size: 7vw;
+    margin: 2vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+}
+
+.info_sala p {
+    display: inline-block;
+    font-size: 2vw;
+    width: 25vw;
+    margin: 1vw;
+}
+
+.flecha {
+    transform: rotate(180deg);
+    height: 10vw;
+    margin: 5vw;
+}
+
+.videos * {
+    height: 15vw;
+    width: 20vw;
+    animation: desde_la_izquierda .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-delay: .6s;
+    animation-fill-mode: both;
+}
+
+
+/*
+Equipamiento
+*/
+
+.main_div_equipamiento {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    background-color: var(--color-fondo);
+}
+
+.lista_equipamiento {
+    width: 40%;
+    padding: 2vw;
+    margin: 1vw;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    border-radius: 90px;
+}
+
+.selector_lista {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.selector_lista * {
+    display: block;
+    padding: 1vw;
+    background-color: #A1FCDF;
+    border: 0px;
+    font-family: "Trueno Black";
+    font-size: 2.2vw;
+}
+
+.selector_lista *:hover {
+    text-decoration: underline;
+}
+
+#boton_selector_software {
+    border: 10px solid var(--color-fondo);
+    border-radius: 90px;
+}
+
+.info_hardware_software {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.info_hardware {
+    display: none;
+}
+
+.info_software ul,
+.info_hardware ul {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.info_hardware ul li {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    border-radius: 40px;
+    border: 5px solid var(--color-fondo);
+    margin: 1vw;
+    filter: saturate(0%);
+    font-family: "Trueno Bold italic";
+    font-size: 1vw;
+    transition: all .3s;
+    padding: 1vw;
+}
+
+.info_software ul li {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    border-radius: 40px;
+    border: 5px solid var(--color-fondo);
+    margin: 1vw;
+    filter: saturate(0%);
+    font-family: "Trueno Bold italic";
+    font-size: 2vw;
+    transition: all .3s;
+}
+
+.info_software ul li:hover,
+.info_hardware ul li:hover {
+    transform: scale(1.1);
+}
+
+.info_software ul li img {
+    margin: 1vw;
+}
+
+.info_software ul li a img {
+    height: 3vw;
+    width: 3vw;
+    margin: 1vw;
+    margin-right: 1.5vw;
+}
+
+.contenedor_flecha {
+    width: 10%;
+    padding: 1vw;
+    margin: 1vw;
+}
+
+.contenedor_flecha * {
+    height: 12vw;
+}
+
+.main_div_equipamiento p {
+    width: 20%;
+    padding: 1vw;
+    margin: 1vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    text-align: left;
+    font-family: "Trueno Bold";
+    font-size: 2vw;
+}
+
+
+/*
+certificados
+*/
+
+.certificados {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-fondo);
+}
+
+.certificados h2 {
+    display: block;
+    font-family: "Trueno Bold Italic";
+    font-size: 1.6vw;
+    color: var(--color-acento);
+    background-color: #000411;
+}
+
+.destacado_certificados {
+    font-family: "Trueno Black Italic";
+    font-size: 2.4vw;
+}
+
+.imagenes_certificados {
+    display: flex;
+    width: 70%;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3vw;
+}
+
+.imagenes_certificados img {
+    transition: all .3s;
+    filter: saturate(0%);
+    margin: 2vw;
+}
+
+.imagenes_certificados img:hover {
+    transform: scale(1.2);
+}
+
+
+/*footer*/
+
+footer {
+    position: absolute;
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    width: 100%;
+    margin-top: 2vw;
+    margin-bottom: 0%;
+    border-top-left-radius: 90px;
+}
+
+.texto_centrado_footer {
+    display: inline-block;
+    position: relative;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    font-family: "Trueno Light";
+    font-size: 1.5vw;
+    margin-left: 30vw;
+}
+
+footer div {
+    float: right;
+    font-family: 'Trueno ExtraBold Outline Italic';
+    font-size: 3.7vw;
+    transform: all .5s;
+}
+
+.logo {
+    margin-right: 1.5vw;
+}

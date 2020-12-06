@@ -1,0 +1,30 @@
+{
+    "artistas": [{
+            "nombre": "The Weeknd",
+            "ruta_imagen": "./images/the_weeknd.jpg",
+            "cita": "Gracias a estudio 33 mis canciones son todo lo buenas que cabría esperar",
+            "link": "https://es.wikipedia.org/wiki/The_Weeknd"
+        },
+        {
+            "nombre": "Drake",
+            "ruta_imagen": "./images/drake.jpg",
+            "cita": "Sin estudio 33 no estaría donde estoy ahora",
+            "link": "https://es.wikipedia.org/wiki/Drake_(m%C3%BAsico)"
+        }, {
+            "nombre": "David Guetta",
+            "ruta_imagen": "./images/david_guetta.png",
+            "cita": "Profesionalidad y buen trato. No podría estar más satisfecho",
+            "link": "https://es.wikipedia.org/wiki/David_Guetta"
+        }, {
+            "nombre": "Daft Punk",
+            "ruta_imagen": "./images/daft_punk.jpg",
+            "cita": "Increíbles medios técnicos y una gran calidad del producto final",
+            "link": "https://es.wikipedia.org/wiki/Daft_Punk"
+        }, {
+            "nombre": "Flume",
+            "ruta_imagen": "./images/flume.jpg",
+            "cita": "Sin palabras. Tiene todo lo que a un estudio se le podría pedir",
+            "link": "https://es.wikipedia.org/wiki/Flume"
+        }
+    ]
+}

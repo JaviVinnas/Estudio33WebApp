@@ -1,0 +1,369 @@
+@import "./assets/fonts/fuentes.css";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-acento: #EFCB68;
+    --color-fondo: #000411;
+}
+
+
+/*barra de desplazamiento*/
+
+::-webkit-scrollbar {
+    width: 20px;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 90px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-acento);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+body {
+    overflow: overlay;
+    overflow-x: hidden;
+    background-color: var(--color-fondo);
+}
+
+
+/*Barra de navegación*/
+
+nav {
+    position: relative;
+    top: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    background-color: var(--color-fondo);
+    padding: 0%;
+    margin: 0%;
+}
+
+.seccion_homepage {
+    display: inline-block;
+    position: relative;
+    font-family: 'Trueno ExtraBold Outline Italic';
+    font-size: 3.7vw;
+}
+
+.seccion_homepage a {
+    display: inline-block;
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    padding: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all .3s;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+}
+
+.seccion_homepage a:hover {
+    background: var(--color-acento);
+    color: var(--color-fondo);
+}
+
+.resto_de_secciones {
+    position: relative;
+    float: right;
+}
+
+.seccion_normal,
+.seccion_destacada {
+    display: inline-block;
+    position: relative;
+    font-family: 'Trueno Bold';
+    font-size: 1.7vw;
+}
+
+.seccion_normal a {
+    display: inline-block;
+    background: var(--color-fondo);
+    color: var(--color-acento);
+    padding: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+}
+
+.seccion_normal a:hover {
+    margin-right: 30px;
+}
+
+
+/*Bienvenida*/
+
+.bienvenida {
+    background-color: var(--color-fondo);
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: center;
+    animation: slideIn .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.bienvenida img {
+    height: 40vw;
+    width: 40vw;
+    filter: saturate(0%);
+    border-top-right-radius: 1000px;
+    border-bottom-right-radius: 1000px;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: scale(0) translateX(100%);
+    }
+    100% {
+        transform: scale(1) translate(0%);
+    }
+}
+
+.info_bienvenida {
+    width: 60vw;
+    background-color: var(--color-fondo);
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.mensaje_bienvenida {
+    display: flex;
+    color: var(--color-acento);
+    height: 10vw;
+    padding-top: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-family: "Trueno Black";
+    font-size: 4vw;
+    text-transform: uppercase;
+    /*flex-basis: 30%;*/
+}
+
+.saber_mas {
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    font-family: "Trueno Bold";
+    font-size: 1.7vw;
+    border: .7vw solid var(--color-acento);
+    padding: 1.5vw;
+    border-radius: 90px;
+    margin-left: 2.5vw;
+    text-decoration: none;
+    transition: all .3s;
+    width: fit-content;
+}
+
+.saber_mas:hover {
+    text-decoration: underline;
+}
+
+.logo_completo_inferior {
+    text-align: center;
+    margin-left: 35vw;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    padding-right: .5vw;
+    background-color: var(--color-acento);
+    font-family: "Trueno ExtraBold Outline Italic";
+    font-size: 3vw;
+    border-radius: 90px;
+}
+
+.quesomos,
+.quehacemos {
+    padding-top: 3vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    padding-left: 0%;
+    padding-right: 0%;
+    cursor: none;
+}
+
+.quesomos a {
+    font-family: "Trueno Extrabold Outline Italic";
+    font-size: 3.86vw;
+    transform: all .5s;
+}
+
+.quehacemos a {
+    font-family: "Trueno Extrabold Outline Italic";
+    font-size: 4.2vw;
+    transform: all .5s;
+}
+
+.hover:hover {
+    font-family: "Trueno Extrabold Italic";
+}
+
+.loquesomos_flex,
+.loquehacemos_flex {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: auto;
+}
+
+.loquesomos_box,
+.loquehacemos_box {
+    background-color: var(--color-acento);
+    color: #000411;
+    padding: 5vw;
+    border-radius: 90;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    font-family: "Trueno Regular", serif;
+    font-size: 2vw;
+    text-align: justify;
+    border-radius: 90px;
+}
+
+footer {
+    position: absolute;
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    width: 100%;
+    margin-top: 2vw;
+    margin-bottom: 0%;
+    border-top-left-radius: 90px;
+}
+
+.texto_centrado_footer {
+    display: inline-block;
+    position: relative;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    font-family: "Trueno Light";
+    font-size: 1.5vw;
+    margin-left: 30vw;
+}
+
+footer div {
+    float: right;
+    font-family: 'Trueno ExtraBold Outline Italic';
+    font-size: 3.7vw;
+    transform: all .5s;
+}
+
+.logo {
+    margin-right: 1.5vw;
+}
+
+
+/*Pop up*/
+
+.pop_up {
+    display: none;
+    /*oculto por defecto*/
+    position: fixed;
+    /*no se mueve*/
+    z-index: 1;
+    /*se muestra sobre los demás*/
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /*si es necesario se habilita el scroll aunque este no es el caso*/
+    background-color: rgb(0, 0, 0);
+    /*color de fallback*/
+    background-color: rgba(0, 0, 0, 0.4);
+    /* negro poco opaco */
+    font-family: "Trueno Bold";
+    font-size: 2vw;
+}
+
+.contenido_pop_up {
+    background-color: var(--color-acento);
+    margin: auto;
+    padding: 3vw;
+    width: 80%;
+    border-radius: 20vw;
+}
+
+.contenido_pop_up p {
+    margin: auto;
+    padding: 1vw;
+    text-align: center;
+}
+
+.cerrar {
+    color: #000;
+    float: right;
+    margin: auto;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    border: 2px solid var(--color-fondo);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes ampliar {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes reducir {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes unblur {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blur {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

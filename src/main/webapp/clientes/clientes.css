@@ -1,0 +1,438 @@
+    @import "../assets/fonts/fuentes.css";
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+     :root {
+        --color-acento: #89AAE6;
+        --color-fondo: #000411;
+    }
+    
+     ::-webkit-scrollbar {
+        width: 20px;
+        background-color: rgba(0, 0, 0, 0.0);
+        color: rgba(0, 0, 0, 0.0);
+    }
+    
+     ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.0);
+        border-radius: 90px;
+    }
+    
+     ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-acento);
+    }
+    
+     ::-webkit-scrollbar-button {
+        display: none;
+    }
+    
+    p {
+        margin-bottom: 20px;
+    }
+    
+    body {
+        overflow: overlay;
+        overflow-x: hidden;
+        background-color: var(--color-fondo);
+    }
+    /*
+Barra de navegación
+*/
+    
+    nav {
+        position: relative;
+        top: 0px;
+        margin: 0px;
+        width: 100%;
+    }
+    
+    nav ul {
+        list-style: none;
+        overflow: hidden;
+        background-color: var(--color-fondo);
+        padding: 0%;
+        margin: 0%;
+    }
+    
+    .seccion_homepage {
+        display: inline-block;
+        position: relative;
+        font-family: 'Trueno ExtraBold Outline Italic';
+        font-size: 3.7vw;
+    }
+    
+    .seccion_homepage a {
+        display: inline-block;
+        background: var(--color-fondo);
+        color: var(--color-acento);
+        padding: 20px;
+        margin-right: 10px;
+        text-decoration: none;
+        transition: all .3s;
+        border-top-right-radius: 90px;
+        border-bottom-right-radius: 90px;
+    }
+    
+    .seccion_homepage a:hover {
+        background: var(--color-acento);
+        color: var(--color-fondo);
+    }
+    
+    .resto_de_secciones {
+        position: relative;
+        float: right;
+    }
+    
+    .seccion_normal,
+    .seccion_destacada {
+        display: inline-block;
+        position: relative;
+        font-family: 'Trueno Bold';
+        font-size: 1.7vw;
+    }
+    
+    .seccion_normal a {
+        display: inline-block;
+        background: var(--color-fondo);
+        color: var(--color-acento);
+        padding: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-decoration: none;
+        transition: all .3s ease-in-out;
+    }
+    
+    .seccion_normal a:hover {
+        margin-right: 30px;
+    }
+    
+    .seccion_destacada a {
+        display: inline-block;
+        color: var(--color-fondo);
+        background: var(--color-acento);
+        padding: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-decoration: none;
+        border-bottom-left-radius: 90px;
+        border-bottom-right-radius: 90px;
+        transition: all .3s ease-in-out;
+    }
+    
+    .seccion_destacada a:hover {
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+    }
+    /*Título de sección*/
+    
+    .reseñas_de_artistas {
+        width: 100%;
+        background-color: var(--color-fondo);
+        color: var(--color-acento);
+    }
+    
+    .titulo_seccion {
+        color: var(--color-acento);
+        background: var(--color-fondo);
+        display: block;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        font-family: 'Trueno ExtraBold';
+        font-size: 3.2vw;
+        padding-left: 2vw;
+        width: 100%;
+    }
+    
+    .fichas_artistas {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        display: flex;
+        overflow: auto;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .animacion_artistas {
+        width: 100%;
+        display: flex;
+        animation: desplazar_tarjetas 25s linear infinite running;
+        animation-delay: .8s;
+    }
+    
+    .animacion_artistas:hover {
+        animation-play-state: paused;
+    }
+    
+    .fichas_artistas::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .ficha_artista {
+        margin-left: 2vw;
+        margin-right: 2vw;
+        display: inline-block;
+        height: 44vw;
+        width: 20vw;
+        text-align: center;
+        border-style: solid;
+        border-width: 10px;
+        border-color: var(--color-acento);
+        border-radius: 90px;
+        -webkit-box-align: center;
+        transition: all .5s;
+        animation: aparecer_tarjeta 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    @keyframes aparecer_tarjeta {
+        0% {
+            transform: translateX(400%) scale(0);
+        }
+        100% {
+            transform: translateX(0%) scale(1);
+        }
+    }
+    
+    .ficha_artista:hover {
+        transform: scale(1.09);
+    }
+    
+    .ficha_artista a img {
+        object-fit: fill;
+        height: 25vw;
+        width: 20vw;
+        border-top-left-radius: 75px;
+        border-top-right-radius: 75px;
+    }
+    
+    .texto_nombre_artista {
+        display: block;
+        position: relative;
+        top: -4vw;
+        background-color: var(--color-acento);
+        color: var(--color-fondo);
+        font-family: "Trueno bold";
+        font-size: 1.7vw;
+        width: 100%;
+        border-radius: 90px;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        text-transform: uppercase;
+    }
+    
+    .texto_cita_artista {
+        position: relative;
+        top: -4vw;
+        font-family: "Trueno bold";
+        display: block;
+        font-size: 1.65vw;
+        padding: 2vw;
+        padding-bottom: 1vw;
+        text-align: center;
+    }
+    
+    @keyframes desplazar_tarjetas {
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+        50% {
+            -webkit-transform: translate(-28%);
+            transform: translate(-28%);
+        }
+        0% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    
+    .albumes_de_artistas {
+        background: var(--color-fondo);
+        color: var(--color-acento);
+        width: 100%;
+    }
+    
+    .albumes_y_biblioteca {
+        height: 100vw;
+        width: auto;
+        background-color: var(--color-acento);
+    }
+    
+    .albumes {
+        border: 10px solid var(--color-acento);
+        background-color: var(--color-acento);
+        border-top-left-radius: 90px;
+        border-top-right-radius: 90px;
+        margin-top: 2vw;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: flex;
+        width: auto;
+        height: auto;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+    
+    .album {
+        display: inline-flex;
+        margin: 0%;
+        padding: 0%;
+    }
+    
+    .album:first-child a img {
+        border-top-left-radius: 85px;
+    }
+    
+    .album:nth-child(4) a img {
+        border-top-right-radius: 85px;
+    }
+    
+    .album:nth-child(5) a img {
+        border-bottom-left-radius: 85px;
+    }
+    
+    .album:nth-child(8) a img {
+        border-bottom-right-radius: 85px;
+    }
+    
+    .album a {
+        display: inline-flex;
+        align-content: space-around;
+        margin: 0%;
+        padding: 0%;
+        transition: all .3s;
+        cursor: pointer;
+    }
+    
+    .album a img {
+        object-fit: fill;
+        display: inline-flex;
+        align-content: space-around;
+        height: 19.4vw;
+        width: 19.4vw;
+        margin: 0%;
+        padding: 0%;
+        transition: all .3s;
+    }
+    
+    .album a img:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+    
+    .mas_albumes {
+        display: inline-block;
+        background: var(--color-acento);
+        justify-content: center;
+        color: var(--color-fondo);
+        height: auto;
+        border-bottom-left-radius: 90px;
+        border-bottom-right-radius: 90px;
+        padding-top: 0%;
+        margin-top: 0%;
+        margin-bottom: 0%;
+        margin-left: 10%;
+        margin-right: 10%;
+        align-content: center;
+    }
+    
+    .mas_albumes p {
+        display: inline-block;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+        padding-left: 9vw;
+        padding-right: 8.9vw;
+        font-family: "Trueno ExtraBold";
+        font-size: 2.3vw;
+    }
+    
+    .mas_albumes form {
+        display: inline-block;
+        padding-top: 0vw;
+        padding-left: 3.8vw;
+        padding-right: 12vw;
+        display: inline-block;
+        margin: 0%;
+    }
+    
+    .mas_albumes form input {
+        background: var(--color-acento);
+        border: 6px solid var(--color-fondo);
+        border-radius: 90px;
+        color: var(--color-fondo);
+        padding: 1.3vw;
+        font-family: "Trueno bold";
+        font-size: 1.4vw;
+        transition: all .3s;
+        text-decoration: none;
+    }
+    
+    .mas_albumes form input:hover {
+        text-decoration: underline;
+    }
+    
+    .texto_fin {
+        padding-top: 3vw;
+        background-color: var(--color-fondo);
+        color: var(--color-acento);
+        padding-left: 0%;
+        padding-right: 0%;
+        cursor: none;
+    }
+    
+    .texto_fin a {
+        font-family: "Trueno Extrabold Outline Italic";
+        font-size: 3.2vw;
+        transform: all .5s;
+    }
+    
+    .texto_fin a:hover {
+        font-family: "Trueno Extrabold Italic";
+    }
+    
+    .texto_destacado_relleno {
+        display: block;
+        font-family: "Trueno Extrabold Italic";
+        font-size: 3.4vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+        text-decoration: none;
+        transition: all .5s;
+    }
+    
+    .texto_fin div:hover {
+        cursor: auto;
+    }
+    
+    footer {
+        position: absolute;
+        display: inline-block;
+        background-color: var(--color-acento);
+        color: var(--color-fondo);
+        width: 100%;
+        margin-top: 2vw;
+        margin-bottom: 0%;
+        border-top-left-radius: 90px;
+    }
+    
+    .texto_centrado_footer {
+        display: inline-block;
+        position: relative;
+        padding-top: 1.5vw;
+        padding-bottom: 1.5vw;
+        font-family: "Trueno Light";
+        font-size: 1.5vw;
+        margin-left: 30vw;
+    }
+    
+    footer div {
+        float: right;
+        font-family: 'Trueno ExtraBold Outline Italic';
+        font-size: 3.7vw;
+        transform: all .5s;
+    }
+    
+    .logo {
+        margin-right: 1.5vw;
+    }

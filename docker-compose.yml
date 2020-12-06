@@ -1,0 +1,42 @@
+version: "3.3"
+
+networks:
+  main:
+
+services:
+  mytomcat:
+    image: tomcat
+    container_name: tomcat-imagen
+    hostname: tomcat
+    volumes:
+      - ./target/Estudio33WebApp-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/estudio33.war
+    ports:
+      - "8080:8080"
+    networks:
+      main:
+  #la ip del tommcat será 172.24.0.2 ( la 172.24.0.1 está reservada para gateway)
+
+  mypostgres:
+    image: postgres
+    container_name: postgres-imagen
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - ./database-docker/:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_PASSWORD: postgres
+    networks:
+      main:
+  #la ip del postgres será 172.24.0.3 ( se genera después de tomcat )
+  httpserver:
+    image: danjellz/http-server:latest
+    container_name: httpserver-imagen
+    hostname: httpserver
+    volumes:
+    - ./ajax-files/:/public
+    ports:
+    - "8000:8080"
+    networks:
+      main:

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HARDWARE>
+	<ELEMENTO_HARDWARE>
+		<NOMBRE>
+			Roland 808
+		</NOMBRE>
+		<RUTA_IMAGEN>
+			./images/ronand_808.jpg
+		</RUTA_IMAGEN>
+		<LINK>
+			https://www.roland.com/es-es/products/rc_tr-808/
+		</LINK>
+	</ELEMENTO_HARDWARE>
+	<ELEMENTO_HARDWARE>
+		<NOMBRE>
+			Isovox Mobile Vocal Booth V2 Midnight
+		</NOMBRE>
+		<RUTA_IMAGEN>
+			./images/isovoox.jpg
+		</RUTA_IMAGEN>
+		<LINK>
+			https://www.thomann.de/es/isovox_mobile_vocal_booth_v2_midnight.htm?glp=1&amp;gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-pGRIGUe-8fc6DtA9BNPs2T79aHqnkgkVyu5-ybd_q6FBKIiLokjwaAoqUEALw_wcB/
+		</LINK>
+	</ELEMENTO_HARDWARE>
+	<ELEMENTO_HARDWARE>
+		<NOMBRE>
+			Yamaha CL3
+		</NOMBRE>
+		<RUTA_IMAGEN>
+			./images/isovoox.jpg
+		</RUTA_IMAGEN>
+		<LINK>
+			https://www.thomann.de/es/isovox_mobile_vocal_booth_v2_midnight.htm?glp=1&amp;gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-pGRIGUe-8fc6DtA9BNPs2T79aHqnkgkVyu5-ybd_q6FBKIiLokjwaAoqUEALw_wcB/
+		</LINK>
+	</ELEMENTO_HARDWARE>
+	<ELEMENTO_HARDWARE>
+		<NOMBRE>
+			Genelec 8320 APM
+		</NOMBRE>
+		<RUTA_IMAGEN>
+			./images/genelec.jpg
+		</RUTA_IMAGEN>
+		<LINK>
+			https://www.thomann.de/es/genelec_8320_apm.htm?glp=1&amp;gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-BDXRCISr_eqYQXIQnionLGPsdRa67D29sUw4VdYCSFqJMB_BW0qQaArrcEALw_wcB
+		</LINK>
+	</ELEMENTO_HARDWARE>
+</HARDWARE>
