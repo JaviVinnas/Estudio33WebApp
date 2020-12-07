@@ -30,3 +30,13 @@ services:
       main:
   #la ip del postgres será 172.24.0.3 ( se genera después de tomcat )
 
+  myhttpserver:
+    image: httpd
+    container_name: httpserver-image
+    hostname: myhttpserver
+    volumes:
+    - ./ajax-files/:/usr/local/apache2/htdocs/
+    ports:
+      - "80:80"
+    networks:
+      main:

@@ -10,7 +10,9 @@ function cargaArtistas() {
             this.responseText
         }
     }
-    xhttp.open("GET", 'http://172.31.23.187/estudio33/clientes_estudio.json', true);
+
+
+    xhttp.open("GET", 'http://localhost:80/clientes_estudio.json', true);
     xhttp.send();
 }
 
