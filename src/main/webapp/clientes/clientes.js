@@ -1,4 +1,4 @@
-var artistas = document.getElementById('artistas');
+const artistas = document.getElementById('artistas');
 
 window.onload = cargaArtistas;
 
@@ -10,8 +10,6 @@ function cargaArtistas() {
             this.responseText
         }
     }
-
-
     xhttp.open("GET", 'http://localhost:80/clientes_estudio.json', true);
     xhttp.send();
 }

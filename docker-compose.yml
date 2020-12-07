@@ -6,19 +6,21 @@ networks:
 
 services:
   mytomcat:
-    image: tomcat
+    image: tomcat:latest
     container_name: tomcat-imagen
+    hostname: tomcat
     volumes:
       - ./target/Estudio33WebApp-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/estudio33.war
     ports:
-      - "8081:8080"
+      - "8080:8080"
     networks:
       main:
   #la ip del tommcat será 172.24.0.2 ( la 172.24.0.1 está reservada para gateway)
 
   mypostgres:
-    image: postgres
+    image: postgres:latest
     container_name: postgres-imagen
+    hostname: postgres
     ports:
       - "5432:5432"
     restart: always
@@ -31,9 +33,9 @@ services:
   #la ip del postgres será 172.24.0.3 ( se genera después de tomcat )
 
   myhttpserver:
-    image: httpd
+    image: httpd:latest
     container_name: httpserver-image
-    hostname: myhttpserver
+    hostname: httpserver
     volumes:
     - ./ajax-files/:/usr/local/apache2/htdocs/
     ports:

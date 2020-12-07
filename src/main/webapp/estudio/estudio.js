@@ -31,24 +31,17 @@ function cambiarpaSoftware() {
     listaHardware.style.display = "none"
 }
 
-
-
-
-
-
-
-
 //-----------------------------------------------------------------------------------------------------------
 //Añadimos el contido a la seccion de hardware
 function cargarHardware() {
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             //funcion que cambia el HTML de la seccion de hardware
             cargarApartirDeXML(this);
         }
     };
-    xhttp.open("GET", "http://localhost/estudio33/hardware.xml", true);
+    xhttp.open("GET", "http://localhost:80/hardware.xml", true);
     xhttp.send();
 }
 

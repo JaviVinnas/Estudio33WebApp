@@ -12,6 +12,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Estudio33WebApp" />
+          <element id="jpa-descriptors" facet="Estudio33WebApp/jpa/JPA" />
         </element>
       </element>
       <element id="directory" name="META-INF">
