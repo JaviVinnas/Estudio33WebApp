@@ -65,7 +65,9 @@ function easter_egg() {
         //desplegamos el banner
         abrir_popup();
         //desmarcamos todos al final
-        fuente_fijada.forEach(function(currentValue, index) { fijar_fuente(index + 1); });
+        fuente_fijada.forEach(function (currentValue, index) {
+            fijar_fuente(index + 1);
+        });
     }
 }
 
@@ -88,10 +90,36 @@ function abrir_popup() {
 //---------------------------------------------------------------------------------------------------------------------------------------------------------
 //JQUERY -> scroll suave desde saber más hasta la siguiente sección
 
-$(document).ready(function() {
-    $('.saber_mas').on("click", function() {
+$(document).ready(function () {
+    $('.saber_mas').on("click", function () {
         $('html, body').animate({
             scrollTop: $("#quesomos").offset().top
         }, 700);
     })
 })
+//------------------------------------------------------------------------------------------
+//práctica final
+//controlador del dropdown del registro
+$(document).ready(function () {
+        $(".wrapper_sesion").hover(
+            function () {
+                $(".dropdown_info").stop(true, true).slideDown('medium');
+            },
+            function () {
+                $(".dropdown_info").stop(true, true).slideUp('medium');
+            });
+    }
+)
+//controlador del popup para iniciar sesión
+$(document).ready(function () {
+    $('#iniciar_sesion').on('click', function () {
+        $('#popup_iniciar_sesion').fadeIn('fast');
+        $(".dropdown_info").stop(true, true).slideDown('fast');
+        $('body').css('overflow', 'hidden');  //ADD THIS
+    });
+    $('#cerrar_popup_iniciar_sesion').on('click', function () {
+        $('#popup_iniciar_sesion').fadeOut('fast');
+        $('body').css('overflow', 'auto');  //ADD THIS
+    })
+})
+
