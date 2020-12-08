@@ -179,16 +179,17 @@
         <span id="cerrar_popup_iniciar_sesion" class="cerrar">&times;</span>
         <!-- El resto del popup -->
 
-        <form method="post" action="">
+        <form method="post">
             <p>Introduce tu identificación (DNI):</p>
             <label>
-                <input type="text" required="required" name="dni" pattern="^[0-9]{8,8}[A-Za-z]$">
+                <input type="text" required="required" id="dni" name="dni" pattern="^[0-9]{8,8}[A-Za-z]$">
             </label><br>
             <p>Introduce tu contraseña:</p>
             <label>
-                <input type="password" required="required" name="contraseña" pattern="[A-Za-z0-9_]{8,}">
+                <input type="password" required="required" name="password" id="password" pattern="[A-Za-z0-9_]{8,}">
             </label><br>
-            <input type="submit" name='enviar' value='Iniciar sesión'>
+            <input id="boton_iniciar_sesion" type="submit" name='enviar' value='Iniciar sesión'>
+                <span class="error_inicio_sesion"></span>
                 <span class="resgitrarse_desde_iniciar_sesion">¿Aún no estás registrado? Regístrate <a
                         href="index.html">aquí</a></span>
         </form>

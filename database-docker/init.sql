@@ -16,7 +16,6 @@ CREATE TABLE usuarios
     telefono         integer      not null,
     fecha_nacimiento date         not null,
     tipo_usuario     varchar(100) not null,
-    foto_perfil      bytea,
     tarjeta          varchar(100),
     pin_tarjeta      integer
 );

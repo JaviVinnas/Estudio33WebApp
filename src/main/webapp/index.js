@@ -123,3 +123,19 @@ $(document).ready(function () {
     })
 })
 
+//gestiona el inicio de sesion
+$(document).ready(function () {
+    $('#boton_iniciar_sesion').click(function (event) {
+        let dni = $('#dni').val();
+        let password = $('#password').val();
+        //hacemos una solicitud http
+        $.post('ExisteUsuarioServlet', {dni: dni, password: password}, function (responsetext) {
+            if(responsetext === 'si'){
+                //llamamos al servler bueno
+            }else {
+                //ponemos el mensaje de error
+            }
+        })
+    })
+})
+

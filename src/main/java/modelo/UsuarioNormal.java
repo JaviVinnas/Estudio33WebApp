@@ -1,5 +1,5 @@
 package modelo;
 
-public final class UsuarioNormal {
+public final class UsuarioNormal extends Usuario{
     public UsuarioNormal(){}
 }
