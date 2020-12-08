@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +20,7 @@
 <nav>
     <ul>
         <li class="seccion_homepage">
-            <a href="./index.html">
+            <a href="./index.jsp">
                 33
             </a>
         </li>
@@ -44,10 +48,18 @@
             <li class="seccion_normal">
                 <div class="wrapper_sesion">
                     <img class="imagen_navbar" src="./images/user-profile.svg" alt="registrate">
-                    <div class="dropdown_info">
-                        <ul>
-                            <li id="iniciar_sesion">Iniciar sesión</li>
-                            <li id="registrarse">Registrarse</li>
+                    <div  class="dropdown_info">
+                        <ul id="dropdown_list">
+                            <c:choose>
+                                <c:when test="${empty usuario}">
+                                    <li id="iniciar_sesion">Iniciar sesión</li>
+                                    <li id="registrarse">Registrarse</li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li id="cerrar_sesion">Cerrar sesión</li>
+                                </c:otherwise>
+                            </c:choose>
+
                         </ul>
                     </div>
                 </div>
@@ -179,7 +191,7 @@
         <span id="cerrar_popup_iniciar_sesion" class="cerrar">&times;</span>
         <!-- El resto del popup -->
 
-        <form method="post">
+        <form>
             <p>Introduce tu identificación (DNI):</p>
             <label>
                 <input type="text" required="required" id="dni" name="dni" pattern="^[0-9]{8,8}[A-Za-z]$">
@@ -188,10 +200,11 @@
             <label>
                 <input type="password" required="required" name="password" id="password" pattern="[A-Za-z0-9_]{8,}">
             </label><br>
-            <input id="boton_iniciar_sesion" type="submit" name='enviar' value='Iniciar sesión'>
-                <span class="error_inicio_sesion"></span>
+            <!-- Revisar formulario como lo tiene el men -->
+            <input id="boton_iniciar_sesion" type="button" value='Iniciar sesión'>
+                <span id="error_inicio_sesion"></span>
                 <span class="resgitrarse_desde_iniciar_sesion">¿Aún no estás registrado? Regístrate <a
-                        href="index.html">aquí</a></span>
+                        href="index.jsp">aquí</a></span>
         </form>
     </div>
 </div>

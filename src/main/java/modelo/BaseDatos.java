@@ -59,7 +59,7 @@ public class BaseDatos {
         PreparedStatement stmUsuario = null;
         ResultSet rsUsuario = null;
         try {
-            stmUsuario = conexion.prepareStatement("select dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario, foto_perfil, tarjeta, pin_tarjeta from usuarios where dni = ? and clave = ?");
+            stmUsuario = conexion.prepareStatement("select dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario, tarjeta, pin_tarjeta from usuarios where dni = ? and clave = ?");
             stmUsuario.setString(1, usuario.getDni());
             stmUsuario.setString(2, usuario.getClave());
             rsUsuario = stmUsuario.executeQuery();

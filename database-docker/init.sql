@@ -42,7 +42,7 @@ CREATE TABLE existencias
 );
 --insertamos cosas de prueba
 insert into usuarios(dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario)
-VALUES ('39488522Y', 'Pepe', 'Flores Martinez', 'aazzsr', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal');
+VALUES ('39488522Y', 'Pepe', 'Flores Martinez', '1234567891011', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal');
 insert into usuarios(dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario, tarjeta)
 VALUES ('96586512A', 'Julio', 'Ju Martinez', 'xxdc', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal',
         '00A0-56DF-4S5C-33K7');

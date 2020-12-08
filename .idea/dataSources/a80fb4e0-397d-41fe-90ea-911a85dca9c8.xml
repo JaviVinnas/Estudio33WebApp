@@ -1408,13 +1408,13 @@ false posix/WET
 false posix/Zulu
 false posixrules
 </TimeZones>
-      <StartupTime>1607433633</StartupTime>
+      <StartupTime>1607460228</StartupTime>
     </root>
     <database id="2" parent="1" name="postgres">
       <ObjectId>13395</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>506</IntrospectionStateNumber>
+      <IntrospectionStateNumber>500</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <role id="3" parent="1" name="pg_execute_server_program">
@@ -1485,7 +1485,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>507</IntrospectionStateNumber>
+      <IntrospectionStateNumber>501</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="17" parent="2" name="plpgsql">
@@ -1785,25 +1785,19 @@ tipo</ColNames>
       <StateNumber>487</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="56" parent="32" name="foto_perfil">
+    <column id="56" parent="32" name="tarjeta">
       <Position>9</Position>
-      <DataType>bytea|0s</DataType>
-      <StateNumber>487</StateNumber>
-      <TypeId>17</TypeId>
-    </column>
-    <column id="57" parent="32" name="tarjeta">
-      <Position>10</Position>
       <DataType>varchar(100)|0s</DataType>
       <StateNumber>487</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="58" parent="32" name="pin_tarjeta">
-      <Position>11</Position>
+    <column id="57" parent="32" name="pin_tarjeta">
+      <Position>10</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>487</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="59" parent="32" name="usuarios_pkey">
+    <index id="58" parent="32" name="usuarios_pkey">
       <ObjectId>16392</ObjectId>
       <StateNumber>487</StateNumber>
       <ColNames>dni</ColNames>
@@ -1814,7 +1808,7 @@ tipo</ColNames>
       <CollationNames>default</CollationNames>
       <ClassIds>10004</ClassIds>
     </index>
-    <key id="60" parent="32" name="usuarios_pkey">
+    <key id="59" parent="32" name="usuarios_pkey">
       <ObjectId>16393</ObjectId>
       <StateNumber>487</StateNumber>
       <ColNames>dni</ColNames>

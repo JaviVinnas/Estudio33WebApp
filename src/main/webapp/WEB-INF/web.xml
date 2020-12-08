@@ -14,4 +14,14 @@
         <url-pattern>/IndexServlet</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>ExisteUsuarioServlet</servlet-name>
+        <servlet-class>controlador.ExisteUsuarioServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ExisteUsuarioServlet</servlet-name>
+        <url-pattern>/ExisteUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    
 </web-app>

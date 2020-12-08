@@ -26,9 +26,9 @@ public class ExisteUsuarioServlet extends HttpServletRedireccionable {
             usuario = bd.existeUsuario(usuario);
             //si existiera lo metemos en la sesión
             if (usuario != null) {
-                response.getWriter().println("no");
+                response.getWriter().print("si");
             }else {
-                response.getWriter().println("si");
+                response.getWriter().print("no");
             }
 
         } catch (SQLException | ClassNotFoundException exception) {

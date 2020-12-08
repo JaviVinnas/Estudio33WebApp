@@ -373,7 +373,7 @@ footer div {
     font-size: 2vw;
 }
 
-.contenido_pop_up form input[type=submit] {
+.contenido_pop_up form input[type=button] {
     display: inline;
     position: center;
     text-align: center;

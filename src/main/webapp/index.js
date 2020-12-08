@@ -125,15 +125,27 @@ $(document).ready(function () {
 
 //gestiona el inicio de sesion
 $(document).ready(function () {
-    $('#boton_iniciar_sesion').click(function (event) {
+    $('#boton_iniciar_sesion').click(function () {
         let dni = $('#dni').val();
         let password = $('#password').val();
         //hacemos una solicitud http
         $.post('ExisteUsuarioServlet', {dni: dni, password: password}, function (responsetext) {
-            if(responsetext === 'si'){
-                //llamamos al servler bueno
-            }else {
-                //ponemos el mensaje de error
+            if (responsetext.localeCompare('si') === 0) {
+                //actualizamos los parámetros de la lista manualmente
+                //y el estado de la página
+                let nodo_padre = document.getElementById('dropdown_list');
+                nodo_padre.removeChild(document.getElementById('iniciar_sesion'));
+                nodo_padre.removeChild(document.getElementById('registrarse'));
+
+                let cerrar_sesion = document.createElement('li');
+                let text_cerrar_sesion = document.createTextNode('Cerrar sesión');
+                cerrar_sesion.appendChild(text_cerrar_sesion);
+                cerrar_sesion.id = 'cerrar_sesion';
+                nodo_padre.appendChild(cerrar_sesion);
+                document.getElementById("cerrar_popup_iniciar_sesion").click();
+                $.post("IndexServlet", {dni: dni, password: password});
+            } else {
+                $('#error_inicio_sesion').text('|' + responsetext + '|');
             }
         })
     })

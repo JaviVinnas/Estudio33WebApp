@@ -33,7 +33,7 @@ public class IndexServlet extends HttpServletRedireccionable {
                 //consultamos la bd
                 usuario = bd.existeUsuario(usuario);
                 //si existiera lo metemos en la sesión
-                if(usuario != null){
+                if (usuario != null) {
                     sesion.setAttribute("usuario", usuario);
                 }
                 gotoPage("./index.jsp", request, response);
