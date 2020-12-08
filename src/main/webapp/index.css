@@ -359,7 +359,6 @@ footer div {
     text-align: left;
     margin-bottom: .3vw;
     padding: 1vw;
-    font-size: 2vw;
 }
 
 .contenido_pop_up form input {
@@ -385,6 +384,13 @@ footer div {
     color: var(--color-acento);
     font-family: "Trueno Bold", serif;
     font-size: 2.3vw;
+}
+
+.resgitrarse_desde_iniciar_sesion {
+    text-align: center;
+    margin-bottom: .2vw;
+    padding: 1vw;
+    font-size: 1.5vw;
 }
 
 .cerrar {
