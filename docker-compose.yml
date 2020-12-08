@@ -5,6 +5,7 @@ networks:
     driver: bridge
 
 services:
+  #contenedor web de la aplicación donde ejecutamos la aplicación como tal
   mytomcat:
     image: tomcat:latest
     container_name: tomcat-imagen
@@ -15,23 +16,21 @@ services:
       - "8080:8080"
     networks:
       main:
-  #la ip del tommcat será 172.24.0.2 ( la 172.24.0.1 está reservada para gateway)
-
+  #base de datos de postgres
   mypostgres:
     image: postgres:latest
     container_name: postgres-imagen
     hostname: postgres
     ports:
       - "5432:5432"
-    #restart: always
+    restart: always
     volumes:
       - ./database-docker/init.sql:/docker-entrypoint-initdb.d/start.sql
     environment:
       POSTGRES_PASSWORD: postgres
     networks:
       main:
-  #la ip del postgres será 172.24.0.3 ( se genera después de tomcat )
-
+  #servidor web donde se pueden hacer peticiones ajax
   myhttpserver:
     image: httpd:latest
     container_name: httpserver-image

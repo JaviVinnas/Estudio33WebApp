@@ -24,7 +24,7 @@ CREATE TABLE usuarios
 CREATE TABLE catalogo_tienda
 (
     id          varchar(10) not null primary key,
-    nombre      varchar(40) not null primary key,
+    nombre      varchar(40) not null,
     categoria   varchar(40) not null,
     descripcion varchar(150),
     precio      float
