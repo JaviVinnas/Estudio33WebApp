@@ -23,9 +23,9 @@ services:
     hostname: postgres
     ports:
       - "5432:5432"
-    restart: always
+    #restart: always
     volumes:
-      - ./database-docker/:/docker-entrypoint-initdb.d/
+      - ./database-docker/init.sql:/docker-entrypoint-initdb.d/start.sql
     environment:
       POSTGRES_PASSWORD: postgres
     networks:
