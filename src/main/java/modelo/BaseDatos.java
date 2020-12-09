@@ -12,38 +12,47 @@ import java.util.Properties;
 
 public class BaseDatos {
 
-    private final Connection conexion;
+    private Connection conexion;
     PrintWriter out;
 
     //se necesita el contexto para pillar la ruta al archivo de properties
-    public BaseDatos(ServletContext servletContext, PrintWriter out) throws SQLException, IOException, ClassNotFoundException {
+    public BaseDatos(ServletContext servletContext, PrintWriter out){
         //
         this.out = out;
         //objetos para la lectura
         Properties configuracion = new Properties();
         InputStream archConfig;
-        //lo leemos (o al menos lo intentamos)
-        Class.forName("org.postgresql.Driver");
-        //cargamos el archivo
-        archConfig = servletContext.getResourceAsStream("/WEB-INF/baseDatos.properties");
-        configuracion.load(archConfig);
-        //creamos el usuario con el que accederemos a la base de datos
-        Properties usuario = new Properties();
-        usuario.setProperty("user", configuracion.getProperty("usuario"));
-        usuario.setProperty("password", configuracion.getProperty("clave"));
-        //creamos la conexión
+        try{
+            Class.forName("org.postgresql.Driver");
+            //cargamos el archivo
+            archConfig = servletContext.getResourceAsStream("/WEB-INF/baseDatos.properties");
+            configuracion.load(archConfig);
+            //creamos el usuario con el que accederemos a la base de datos
+            Properties usuario = new Properties();
+            usuario.setProperty("user", configuracion.getProperty("usuario"));
+            usuario.setProperty("password", configuracion.getProperty("clave"));
+            //creamos la conexión
 
-        this.conexion = java.sql.DriverManager.getConnection("jdbc:" + configuracion.getProperty("gestor") + "://"
-                        + configuracion.getProperty("servidor") + ":"
-                        + configuracion.getProperty("puerto") + "/"
-                        + configuracion.getProperty("baseDatos"),
-                usuario);
+            this.conexion = java.sql.DriverManager.getConnection("jdbc:" + configuracion.getProperty("gestor") + "://"
+                            + configuracion.getProperty("servidor") + ":"
+                            + configuracion.getProperty("puerto") + "/"
+                            + configuracion.getProperty("baseDatos"),
+                    usuario);
+        }catch (ClassNotFoundException | IOException | SQLException ex){
+            out.println(ex.getMessage());
+        }
+        //lo leemos (o al menos lo intentamos)
+
 
 
     }
 
-    public void cerrarConexion() throws SQLException {
-        conexion.close();
+    public void cerrarConexion() {
+        try {
+            conexion.close();
+        } catch (SQLException ex){
+            out.println(ex.getMessage());
+        }
     }
 
     /*se le pasa un usuario con

@@ -53,6 +53,7 @@
                             <c:choose>
                                 <c:when test="${empty usuario}">
                                     <form method="post" action="IniciarSesionServlet">
+                                        <input type="hidden" name="origen" value="index" >
                                         <input type="submit" name="iniciar_sesion" value="Iniciar sesión">
                                     </form>
                                     <li id="registrarse">Registrarse</li>

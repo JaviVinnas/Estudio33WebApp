@@ -51,7 +51,7 @@ body {
     padding: 1.5vw;
     width: 50%;
     height: 55%;
-    border-radius: 5vw;
+    border-radius: 4vw;
 }
 
 .contenido_pop_up p {
@@ -83,7 +83,7 @@ body {
     font-size: 1.8vw;
 }
 
-.contenido_pop_up form input[type=button] {
+.contenido_pop_up form input[type=submit] {
     display: inline;
     position: center;
     text-align: center;
@@ -99,6 +99,16 @@ body {
 .resgitrarse_desde_iniciar_sesion {
     display: block;
     color: var(--color-acento);
+    text-align: center;
+    margin-top: 2vw;
+    margin-bottom: .2vw;
+    padding: 1vw;
+    font-size: 1.5vw;
+}
+
+.error_login {
+    display: block;
+    color: crimson;
     text-align: center;
     margin-top: 2vw;
     margin-bottom: .2vw;

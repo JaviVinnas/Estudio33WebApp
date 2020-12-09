@@ -19,29 +19,8 @@ public class IndexServlet extends HttpServletRedireccionable {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        try {
-            //obtenemos la sesión
-            HttpSession sesion = request.getSession(true);
-            //creamos una instancia de la base de datos
-            BaseDatos bd = new BaseDatos(getServletContext(), response.getWriter());
-            //vemos por que se ha llamado
-            //1º -> de iniciar sesión desde la pantalla de inicio
-            if (request.getParameter("dni") != null && request.getParameter("password") != null) {
-                Usuario usuario = new UsuarioNormal();
-                usuario.setDni(request.getParameter("dni"));
-                usuario.setClave(request.getParameter("password"));
-                //consultamos la bd
-                usuario = bd.existeUsuario(usuario);
-                //si existiera lo metemos en la sesión
-                if (usuario != null) {
-                    sesion.setAttribute("usuario", usuario);
-                }
-                gotoPage("./index.jsp", request, response);
-            }
+        gotoPage("./index.jsp", request, response);
 
-        } catch (SQLException | ClassNotFoundException exception) {
-            response.getWriter().println(exception);
-        }
 
     }
 

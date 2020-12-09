@@ -19,7 +19,7 @@
 
 
 <div class="contenido_pop_up">
-    <form>
+    <form method="post" action="IniciarSesionServlet">
         <p>Introduce tu identificación (DNI):</p>
         <label>
             <input type="text" required="required" id="dni" name="dni" pattern="^[0-9]{8,8}[A-Za-z]$">
@@ -29,14 +29,14 @@
             <input type="password" required="required" name="password" id="password" pattern="[A-Za-z0-9_]{8,}">
         </label><br>
         <!-- Revisar formulario como lo tiene el men -->
-        <input id="boton_iniciar_sesion" type="button" value='Iniciar sesión'>
-        <span id="error_inicio_sesion"></span>
+        <input type="submit" value='Iniciar sesión'>
     </form>
 </div>
 
-<c:when test="${not empty error_iniciar_sesion}">
-    <span class="error_loguin">Error al iniciar sesión: <c:out value="${error_iniciar_sesion}"/> </span>
-</c:when>
+
+<c:if test="${not empty error}">
+    <span class="error_login">Error al iniciar sesión: no hay un usuario ese DNI y esa clave </span>
+</c:if>
 
 
 <span class="resgitrarse_desde_iniciar_sesion">¿Aún no estás registrado? Regístrate <a
