@@ -10,7 +10,7 @@
     <meta name="keywords" content="estudio, 33, estudio33"/>
     <meta name="author" content="Javier Rodríguez Viñas">
     <meta name="copyright" content="Javier Rodríguez Viñas"/>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/index.css">
     <title>Estudio 33</title>
 
 </head>
@@ -48,11 +48,13 @@
             <li class="seccion_normal">
                 <div class="wrapper_sesion">
                     <img class="imagen_navbar" src="./images/user-profile.svg" alt="registrate">
-                    <div  class="dropdown_info">
+                    <div class="dropdown_info">
                         <ul id="dropdown_list">
                             <c:choose>
                                 <c:when test="${empty usuario}">
-                                    <li id="iniciar_sesion">Iniciar sesión</li>
+                                    <form method="post" action="IniciarSesionServlet">
+                                        <input type="submit" name="iniciar_sesion" value="Iniciar sesión">
+                                    </form>
                                     <li id="registrarse">Registrarse</li>
                                 </c:when>
                                 <c:otherwise>
@@ -181,31 +183,6 @@
         <p>¡Has ganado un código de descuento del 30%!</p>
         <p><u>da898asd7</u></p>
         <p>Introdúcelo en la reserva de tu proxima sesión para disfrutar de él</p>
-    </div>
-</div>
-
-<!-- Pupup de iniciar sesión-->
-<div id="popup_iniciar_sesion" class="pop_up">
-    <div class="contenido_pop_up">
-        <!-- X de cerrar el PopUp -->
-        <span id="cerrar_popup_iniciar_sesion" class="cerrar">&times;</span>
-        <!-- El resto del popup -->
-
-        <form>
-            <p>Introduce tu identificación (DNI):</p>
-            <label>
-                <input type="text" required="required" id="dni" name="dni" pattern="^[0-9]{8,8}[A-Za-z]$">
-            </label><br>
-            <p>Introduce tu contraseña:</p>
-            <label>
-                <input type="password" required="required" name="password" id="password" pattern="[A-Za-z0-9_]{8,}">
-            </label><br>
-            <!-- Revisar formulario como lo tiene el men -->
-            <input id="boton_iniciar_sesion" type="button" value='Iniciar sesión'>
-                <span id="error_inicio_sesion"></span>
-                <span class="resgitrarse_desde_iniciar_sesion">¿Aún no estás registrado? Regístrate <a
-                        href="index.jsp">aquí</a></span>
-        </form>
     </div>
 </div>
 

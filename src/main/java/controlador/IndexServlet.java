@@ -1,4 +1,4 @@
-package controlador.pageServlets;
+package controlador;
 
 import controlador.HttpServletRedireccionable;
 import modelo.BaseDatos;

@@ -1,7 +1,7 @@
-var fuente_fijada = [false, false, false, false];
-var popup = document.getElementById("mi_pop_up");
-var cerrar = document.getElementsByClassName("cerrar")[0];
-var contenido_popup = document.getElementsByClassName("contenido_pop_up")[0];
+const fuente_fijada = [false, false, false, false];
+const popup = document.getElementById("mi_pop_up");
+const cerrar = document.getElementsByClassName("cerrar")[0];
+const contenido_popup = document.getElementsByClassName("contenido_pop_up")[0];
 
 
 //ASOCIAMOS EVENTOS
@@ -61,7 +61,7 @@ function fijar_fuente_4() {
 
 function easter_egg() {
     //si todos están rellenos
-    if (fuente_fijada.every((e) => e == true)) {
+    if (fuente_fijada.every((e) => e === true)) {
         //desplegamos el banner
         abrir_popup();
         //desmarcamos todos al final
@@ -110,6 +110,8 @@ $(document).ready(function () {
             });
     }
 )
+
+/*
 //controlador del popup para iniciar sesión
 $(document).ready(function () {
     $('#iniciar_sesion').on('click', function () {
@@ -150,4 +152,4 @@ $(document).ready(function () {
         })
     })
 })
-
+*/

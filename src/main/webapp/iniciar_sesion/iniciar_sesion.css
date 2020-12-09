@@ -1,0 +1,122 @@
+@import "../assets/fonts/fuentes.css";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-acento: #EFCB68;
+    --color-fondo: #000411;
+}
+
+
+/*barra de desplazamiento*/
+
+::-webkit-scrollbar {
+    width: 20px;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 90px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-acento);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--color-fondo);
+}
+
+.titulo_pagina {
+    display: block;
+    color: var(--color-acento);
+    font-size: 4.5vw;
+    margin: 1.5vw;
+    font-family: "Trueno Black Outline Italic", serif;
+}
+
+.contenido_pop_up {
+    background-color: var(--color-acento);
+    margin: auto;
+    padding: 1.5vw;
+    width: 50%;
+    height: 55%;
+    border-radius: 5vw;
+}
+
+.contenido_pop_up p {
+    margin: auto;
+    padding: 1vw;
+    text-align: center;
+}
+
+.contenido_pop_up form {
+    margin: .5vw;
+}
+
+.contenido_pop_up form p {
+    text-align: left;
+    margin-bottom: .3vw;
+    padding: .7vw;
+    font-size: 1.8vw;
+}
+
+.contenido_pop_up form input {
+    margin-bottom: 1vw;
+    padding: 1vw;
+    border-radius: 90px;
+    width: -webkit-fill-available;
+    border: 5px solid var(--color-fondo);
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    font-family: "Trueno Bold", serif;
+    font-size: 1.8vw;
+}
+
+.contenido_pop_up form input[type=button] {
+    display: inline;
+    position: center;
+    text-align: center;
+    width: -webkit-fill-available;
+    padding: 1vw;
+    margin: 1vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    font-family: "Trueno Bold", serif;
+    font-size: 2vw;
+}
+
+.resgitrarse_desde_iniciar_sesion {
+    display: block;
+    color: var(--color-acento);
+    text-align: center;
+    margin-top: 2vw;
+    margin-bottom: .2vw;
+    padding: 1vw;
+    font-size: 1.5vw;
+}
+
+.cerrar {
+    color: var(--color-fondo);
+    float: right;
+    margin: auto;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    border: 2px solid var(--color-fondo);
+    text-decoration: none;
+    cursor: pointer;
+}
