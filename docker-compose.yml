@@ -14,9 +14,10 @@ services:
       - ./target/Estudio33WebApp-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/estudio33.war
     ports:
       - "8080:8080"
-      - "8001:8001"
+      - "8000:8000"
     environment:
-      - "JPDA_ADDRESS=8001"
+      - "JPDA_OPTS=-agentlib:jdwp=transport=dt_socket,address=*:8000,server=y,suspend=n"
+      - "JPDA_ADDRESS=8000"
       - "JPDA_TRANSPORT=dt_socket"
     command: bash -c "/usr/local/tomcat/bin/catalina.sh jpda run"
     networks:
@@ -41,7 +42,7 @@ services:
     container_name: httpserver-image
     hostname: httpserver
     volumes:
-    - ./ajax-files/:/usr/local/apache2/htdocs/
+      - ./ajax-files/:/usr/local/apache2/htdocs/
     ports:
       - "80:80"
     networks:
