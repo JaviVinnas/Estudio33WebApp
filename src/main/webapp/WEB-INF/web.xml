@@ -5,6 +5,16 @@
          version="4.0">
 
     <servlet>
+        <servlet-name>EstudioServlet</servlet-name>
+        <servlet-class>controlador.EstudioServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>EstudioServlet</servlet-name>
+        <url-pattern>/EstudioServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>controlador.IndexServlet</servlet-class>
     </servlet>

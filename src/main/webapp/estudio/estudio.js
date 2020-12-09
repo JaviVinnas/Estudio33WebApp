@@ -17,7 +17,7 @@ function cambiarpaHardware() {
     btnHardware.style.border = "10px solid var(--color-fondo)"
     btnHardware.style.borderRadius = "90px"
     btnSoftware.style.border = "0px"
-        //damos visibilidad a las listas oportunas
+    //damos visibilidad a las listas oportunas
     listaHardware.style.display = "block"
     listaSoftware.style.display = "none"
 }
@@ -26,7 +26,7 @@ function cambiarpaSoftware() {
     btnSoftware.style.border = "10px solid var(--color-fondo)"
     btnSoftware.style.borderRadius = "90px"
     btnHardware.style.border = "0px"
-        //damos visibilidad a las listas oportunas
+    //damos visibilidad a las listas oportunas
     listaSoftware.style.display = "block"
     listaHardware.style.display = "none"
 }
@@ -35,7 +35,7 @@ function cambiarpaSoftware() {
 //Añadimos el contido a la seccion de hardware
 function cargarHardware() {
     let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             //funcion que cambia el HTML de la seccion de hardware
             cargarApartirDeXML(this);
@@ -63,3 +63,18 @@ function cargarApartirDeXML(xml) {
     contenidoHardware += '<ul>';
     listaHardware.innerHTML = contenidoHardware
 }
+
+//---------------------------------------------------------------------------------------
+//práctica final
+//controlador del dropdown del registro
+$(document).ready(function () {
+        $(".wrapper_sesion").hover(
+            function () {
+                $(".dropdown_info").stop(true, true).slideDown('medium');
+            },
+            function () {
+                $(".dropdown_info").stop(true, true).slideUp('medium');
+            });
+    }
+)
+

@@ -16,19 +16,21 @@
 </head>
 
 <body>
-<script src="./assets/jQuery.js"></script>
+<script src="${pageContext.request.contextPath}/assets/jQuery.js"></script>
 <nav>
     <ul>
         <li class="seccion_homepage">
-            <a href="./index.jsp">
-                33
-            </a>
+            <form method="post" action="IndexServlet">
+                <input type="hidden" name="origen" value="index">
+                <input type="submit" name="self" value="33">
+            </form>
         </li>
         <div class="resto_de_secciones">
             <li class="seccion_normal">
-                <a href="./estudio/estudio.html">
-                    El estudio
-                </a>
+                <form method="post" action="EstudioServlet">
+                    <input type="hidden" name="origen" value="index">
+                    <input type="submit" name="estudio" value="El estudio">
+                </form>
             </li>
             <li class="seccion_normal">
                 <a href="./servicios/servicios.html">
@@ -47,13 +49,14 @@
             </li>
             <li class="seccion_normal">
                 <div class="wrapper_sesion">
-                    <img class="imagen_navbar" src="./images/user-profile.svg" alt="registrate">
+                    <img class="imagen_navbar" src="${pageContext.request.contextPath}/assets/user-profile.svg"
+                         alt="registrate">
                     <div class="dropdown_info">
                         <ul id="dropdown_list">
                             <c:choose>
                                 <c:when test="${empty usuario}">
                                     <form method="post" action="IniciarSesionServlet">
-                                        <input type="hidden" name="origen" value="index" >
+                                        <input type="hidden" name="origen" value="index">
                                         <input type="submit" name="iniciar_sesion" value="Iniciar sesión">
                                     </form>
                                     <li id="registrarse">Registrarse</li>
@@ -76,7 +79,8 @@
 <main>
     <section class="bienvenida">
 
-        <img src="./images/young_thug_estudio.jpg" alt="El estudio" height="400" width="400"/>
+        <img src="${pageContext.request.contextPath}/images/young_thug_estudio.jpg" alt="El estudio" height="400"
+             width="400"/>
 
         <div class="info_bienvenida">
             <h1 class="mensaje_bienvenida">Donde nace la música</h1>
@@ -188,7 +192,7 @@
 </div>
 
 
-<script src="./index.js"></script>
+<script src="${pageContext.request.contextPath}/index.js"></script>
 </body>
 
 </html>

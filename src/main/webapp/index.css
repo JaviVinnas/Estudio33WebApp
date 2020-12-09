@@ -210,11 +210,11 @@ nav ul {
 .logo_completo_inferior {
     text-align: center;
     margin-left: 35vw;
-    margin-top: 10vw;
+    margin-top: 7vw;
     margin-bottom: 10vw;
-    padding: .1vw;
+    padding: 1vw;
     background-color: var(--color-acento);
-    font-family: "Trueno ExtraBold Outline Italic";
+    font-family: "Trueno ExtraBold Outline Italic", serif;
     font-size: 3vw;
     border-radius: 90px;
 }

@@ -11,12 +11,20 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/iniciar_sesion/iniciar_sesion.css">
     <title>Estudio 33</title>
 </head>
-<body>
+<c:choose>
+    <c:when test="${not empty origen}">
+        <body class="<c:out value="${origen}"/>">
+    </c:when>
+    <c:otherwise>
+        <body>
+    </c:otherwise>
+</c:choose>
+
+
 
 <h1 class="titulo_pagina">
     Inicia sesión
 </h1>
-
 
 <div class="contenido_pop_up">
     <form method="post" action="IniciarSesionServlet">

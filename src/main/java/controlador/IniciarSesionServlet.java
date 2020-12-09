@@ -21,11 +21,10 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
         HttpSession sesion = request.getSession(true);
 
 
-
         if (request.getParameter("origen") != null) {
             //no hay ningún dato en la solicitud (solo su origen) -> acabamos de llegar a la página
             sesion.setAttribute("error", null);
-            sesion.setAttribute("origen",request.getParameter("origen"));
+            sesion.setAttribute("origen", request.getParameter("origen"));
             sesion.setAttribute("animaciones", true);
             //vamos a la página
             gotoPage("iniciar_sesion", request, response);
@@ -48,6 +47,7 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
             } else {
                 sesion.setAttribute("animaciones", false);
                 sesion.setAttribute("error", true);
+                gotoPage("iniciar_sesion", request, response);
             }
         } else {
             throw new ServletException();

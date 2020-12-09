@@ -6,10 +6,22 @@
 }
 
 :root {
-    --color-acento: #EFCB68;
     --color-fondo: #000411;
 }
 
+
+body {
+    overflow-x: hidden;
+    background-color: var(--color-fondo);
+}
+
+.index {
+    --color-acento: #EFCB68;
+}
+
+.estudio {
+    --color-acento: #A1FCDF;
+}
 
 /*barra de desplazamiento*/
 
@@ -32,10 +44,9 @@
     display: none;
 }
 
-body {
-    overflow-x: hidden;
-    background-color: var(--color-fondo);
-}
+
+
+
 
 .titulo_pagina {
     display: block;
