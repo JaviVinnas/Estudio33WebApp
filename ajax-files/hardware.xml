@@ -5,7 +5,7 @@
 			Roland 808
 		</NOMBRE>
 		<RUTA_IMAGEN>
-			${pageContext.request.contextPath}/estudio/images/ronand_808.jpg
+			./estudio/images/ronand_808.jpg
 		</RUTA_IMAGEN>
 		<LINK>
 			https://www.roland.com/es-es/products/rc_tr-808/
@@ -16,7 +16,7 @@
 			Isovox Mobile Vocal Booth V2 Midnight
 		</NOMBRE>
 		<RUTA_IMAGEN>
-			${pageContext.request.contextPath}/estudio/images/isovoox.jpg
+			./estudio/images/isovoox.jpg
 		</RUTA_IMAGEN>
 		<LINK>
 			https://www.thomann.de/es/isovox_mobile_vocal_booth_v2_midnight.htm?glp=1&amp;gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-pGRIGUe-8fc6DtA9BNPs2T79aHqnkgkVyu5-ybd_q6FBKIiLokjwaAoqUEALw_wcB/
@@ -27,7 +27,7 @@
 			Yamaha CL3
 		</NOMBRE>
 		<RUTA_IMAGEN>
-			${pageContext.request.contextPath}/estudio/images/isovoox.jpg
+			./estudio/images/isovoox.jpg
 		</RUTA_IMAGEN>
 		<LINK>
 			https://www.thomann.de/es/isovox_mobile_vocal_booth_v2_midnight.htm?glp=1&amp;gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-pGRIGUe-8fc6DtA9BNPs2T79aHqnkgkVyu5-ybd_q6FBKIiLokjwaAoqUEALw_wcB/
@@ -38,7 +38,7 @@
 			Genelec 8320 APM
 		</NOMBRE>
 		<RUTA_IMAGEN>
-			${pageContext.request.contextPath}/estudio/images/genelec.jpg
+			./estudio/images/genelec.jpg
 		</RUTA_IMAGEN>
 		<LINK>
 			https://www.thomann.de/es/genelec_8320_apm.htm?glp=1&amp;gclid=Cj0KCQjw5eX7BRDQARIsAMhYLP-BDXRCISr_eqYQXIQnionLGPsdRa67D29sUw4VdYCSFqJMB_BW0qQaArrcEALw_wcB
