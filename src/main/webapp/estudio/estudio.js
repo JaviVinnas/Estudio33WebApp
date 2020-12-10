@@ -50,31 +50,17 @@ function cargarApartirDeXML(xml) {
     let contenidoHardware = '<ul>';
     for (let i = 0; i < x.length; i++) {
         let nombre = x[i].getElementsByTagName("NOMBRE")[0].childNodes[0].nodeValue;
-        console.log(nombre);
         let ruta_imagen = x[i].getElementsByTagName("RUTA_IMAGEN")[0].childNodes[0].nodeValue;
-        console.log(ruta_imagen);
         let link = x[i].getElementsByTagName("LINK")[0].childNodes[0].nodeValue;
-        console.log(link);
         contenidoHardware += '<li class="elemento_hardware">';
         contenidoHardware += "<img src='" + ruta_imagen + "' alt='" + nombre + "' height='100' width='100'>" + nombre;
         contenidoHardware += "<a href='" + link + "'>Ver en la web</a>"
         contenidoHardware += '</li>';
+        console.log(contenidoHardware);
     }
     contenidoHardware += '<ul>';
     listaHardware.innerHTML = contenidoHardware
 }
 
-//---------------------------------------------------------------------------------------
-//práctica final
-//controlador del dropdown del registro
-$(document).ready(function () {
-        $(".wrapper_sesion").hover(
-            function () {
-                $(".dropdown_info").stop(true, true).slideDown('medium');
-            },
-            function () {
-                $(".dropdown_info").stop(true, true).slideUp('medium');
-            });
-    }
-)
+
 

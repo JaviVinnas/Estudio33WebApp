@@ -15,65 +15,81 @@
 </head>
 
 <body>
+
+
 <nav>
     <ul>
         <li class="seccion_homepage">
-            <form method="post" action="IndexServlet">
-                <input type="hidden" name="origen" value="estudio">
-                <input type="submit" name="self" value="33">
-            </form>
+            <a href="${pageContext.request.contextPath}/index.jsp">
+                33
+            </a>
         </li>
         <div class="resto_de_secciones">
             <li class="seccion_destacada">
-                <a href="./estudio.jsp">
+                <a href="${pageContext.request.contextPath}/estudio/estudio.jsp">
                     El estudio
                 </a>
             </li>
             <li class="seccion_normal">
-                <a href="../servicios/servicios.html">
+                <a href="${pageContext.request.contextPath}/servicios/servicios.jsp">
                     Servicios
                 </a>
             </li>
             <li class="seccion_normal">
-                <a href="../clientes/clientes.html">
+                <a href="${pageContext.request.contextPath}/clientes/clientes.jsp">
                     Clientes
                 </a>
             </li>
             <li class="seccion_normal">
-                <a href="../nosotros/nosotros.html">
+                <a href="${pageContext.request.contextPath}/nosotros/nosotros.jsp">
                     Nosotros
                 </a>
             </li>
-
-            <li class="seccion_normal">
-                <div class="wrapper_sesion">
-                    <img class="imagen_navbar" src="${pageContext.request.contextPath}/assets/user-profile.svg"
-                         alt="registrate">
-                    <div class="dropdown_info">
-                        <ul id="dropdown_list">
-                            <c:choose>
-                                <c:when test="${empty usuario}">
-                                    <form method="post" action="IniciarSesionServlet">
-                                        <input type="hidden" name="origen" value="estudio">
-                                        <input type="submit" name="iniciar_sesion" value="Iniciar sesión">
-                                    </form>
-                                    <li id="registrarse">Registrarse</li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li id="cerrar_sesion">Cerrar sesión</li>
-                                </c:otherwise>
-                            </c:choose>
-
-                        </ul>
-                    </div>
-                </div>
-            </li>
-
+            <c:choose>
+                <c:when test="${empty usuario}">
+                    <li class="seccion_normal">
+                        <div class="wrapper_sesion">
+                            <img class="imagen_navbar" src="${pageContext.request.contextPath}/assets/user-profile.svg"
+                                 alt="registrate">
+                            <div class="dropdown_info">
+                                <ul id="dropdown_list">
+                                    <li>
+                                        <form method="post"
+                                              action="${pageContext.request.contextPath}/IniciarSesionServlet">
+                                            <input type="hidden" name="origen" value="estudio">
+                                            <input type="submit" name="iniciar_sesion" value="Iniciar sesión">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form method="post" action="RegistrarseServlet">
+                                            <input type="hidden" name="origen" value="estudio">
+                                            <input type="submit" name="registrarse" value="Registrarse">
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="seccion_normal">
+                        <div class="banner_usuario">
+                            <div class="id_usuario"> Bienvenido <c:out value="${usuario.nombre}"/></div>
+                            <div class="wrapper_icono_tienda">
+                                <form method="post" action="TiendaServlet">
+                                    <input type="image" name="submit"
+                                           src="${pageContext.request.contextPath}/assets/shopping-cart.svg"
+                                           alt="submit" height="40" width="40">
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </c:otherwise>
+            </c:choose>
         </div>
     </ul>
-
-
 </nav>
+
 
 <main>
     <section>
@@ -230,6 +246,7 @@
 
 <script src="${pageContext.request.contextPath}/assets/jQuery.js"></script>
 <script src="${pageContext.request.contextPath}/estudio/estudio.js"></script>
+<script src="${pageContext.request.contextPath}/assets/assets.js"></script>
 
 </body>
 

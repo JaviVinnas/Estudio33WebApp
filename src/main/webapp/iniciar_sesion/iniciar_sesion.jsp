@@ -12,14 +12,13 @@
     <title>Estudio 33</title>
 </head>
 <c:choose>
-    <c:when test="${not empty origen}">
-        <body class="<c:out value="${origen}"/>">
-    </c:when>
-    <c:otherwise>
-        <body>
-    </c:otherwise>
+<c:when test="${not empty origen}">
+<body class="<c:out value="${origen}"/>">
+</c:when>
+<c:otherwise>
+<body>
+</c:otherwise>
 </c:choose>
-
 
 
 <h1 class="titulo_pagina">
@@ -30,11 +29,12 @@
     <form method="post" action="IniciarSesionServlet">
         <p>Introduce tu identificación (DNI):</p>
         <label>
-            <input type="text" required="required" id="dni" name="dni" pattern="^[0-9]{8,8}[A-Za-z]$">
+            <input type="text" required="required" id="dni" autocomplete="on" name="dni" pattern="^[0-9]{8,8}[A-Za-z]$">
         </label><br>
         <p>Introduce tu contraseña:</p>
         <label>
-            <input type="password" required="required" name="password" id="password" pattern="[A-Za-z0-9_]{8,}">
+            <input type="password" required="required" name="password" autocomplete="on" id="password"
+                   pattern="[A-Za-z0-9_]{8,}">
         </label><br>
         <!-- Revisar formulario como lo tiene el men -->
         <input type="submit" value='Iniciar sesión'>
@@ -48,7 +48,7 @@
 
 
 <span class="resgitrarse_desde_iniciar_sesion">¿Aún no estás registrado? Regístrate <a
-        href="index.jsp">aquí</a></span>
+        href="index.jsp" class="link_registro">aquí</a></span>
 
 
 </body>

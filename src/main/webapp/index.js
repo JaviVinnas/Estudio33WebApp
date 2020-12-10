@@ -1,3 +1,5 @@
+
+
 const fuente_fijada = [false, false, false, false];
 const popup = document.getElementById("mi_pop_up");
 const cerrar = document.getElementsByClassName("cerrar")[0];
@@ -98,16 +100,6 @@ $(document).ready(function () {
     })
 })
 //------------------------------------------------------------------------------------------
-//práctica final
-//controlador del dropdown del registro
-$(document).ready(function () {
-        $(".wrapper_sesion").hover(
-            function () {
-                $(".dropdown_info").stop(true, true).slideDown('medium');
-            },
-            function () {
-                $(".dropdown_info").stop(true, true).slideUp('medium');
-            });
-    }
-)
+
+
 

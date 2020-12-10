@@ -5,24 +5,25 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>EstudioServlet</servlet-name>
-        <servlet-class>controlador.EstudioServlet</servlet-class>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>EstudioServlet</servlet-name>
-        <url-pattern>/EstudioServlet</url-pattern>
-    </servlet-mapping>
-    
-    <servlet>
-        <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>controlador.IndexServlet</servlet-class>
+        <servlet-name>RegistrarseServlet</servlet-name>
+        <servlet-class>controlador.RegistrarseServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/IndexServlet</url-pattern>
+        <servlet-name>RegistrarseServlet</servlet-name>
+        <url-pattern>/RegistrarseServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TiendaServlet</servlet-name>
+        <servlet-class>controlador.TiendaServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TiendaServlet</servlet-name>
+        <url-pattern>/TiendaServlet</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>IniciarSesionServlet</servlet-name>

@@ -54,6 +54,7 @@ function ocultar_respuesta(index) {
 //------------------------------------------------------------------------------------------------------------------------
 //JQUERY -> Pantalla de carga de las tarifas
 
-$(window).on('load', function() {
+$(window).on('load', function () {
     $('.outer-loader').delay(500).fadeOut('slow');
 });
+

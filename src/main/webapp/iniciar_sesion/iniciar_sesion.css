@@ -23,6 +23,18 @@ body {
     --color-acento: #A1FCDF;
 }
 
+.servicios {
+    --color-acento: #FC6471;
+}
+
+.clientes {
+    --color-acento: #89AAE6;
+}
+
+.nosotros {
+    --color-acento: #76e5fc;
+}
+
 /*barra de desplazamiento*/
 
 ::-webkit-scrollbar {
@@ -45,15 +57,24 @@ body {
 }
 
 
-
-
-
 .titulo_pagina {
     display: block;
     color: var(--color-acento);
     font-size: 4.5vw;
     margin: 1.5vw;
     font-family: "Trueno Black Outline Italic", serif;
+    transition: all .3s;
+    animation: por_la_izquierda .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: both;
+}
+
+@keyframes por_la_izquierda {
+    0% {
+        transform: translateX(-100%) scale(0);
+    }
+    100% {
+        transform: translateX(0%) scale(1);
+    }
 }
 
 .contenido_pop_up {
@@ -63,6 +84,17 @@ body {
     width: 50%;
     height: 55%;
     border-radius: 4vw;
+    animation: slideUp .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: both;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%) scale(0);
+    }
+    100% {
+        transform: translateY(0%) scale(1);
+    }
 }
 
 .contenido_pop_up p {
@@ -111,9 +143,8 @@ body {
     display: block;
     color: var(--color-acento);
     text-align: center;
-    margin-top: 2vw;
+    margin-top: 1.5vw;
     margin-bottom: .2vw;
-    padding: 1vw;
     font-size: 1.5vw;
 }
 
@@ -127,17 +158,7 @@ body {
     font-size: 1.5vw;
 }
 
-.cerrar {
-    color: var(--color-fondo);
-    float: right;
-    margin: auto;
-    font-size: 5vw;
-    font-weight: bold;
-}
-
-.cerrar:hover,
-.cerrar:focus {
-    border: 2px solid var(--color-fondo);
-    text-decoration: none;
-    cursor: pointer;
+.link_registro {
+    color: var(--color-acento);
+    text-decoration: underline;
 }
