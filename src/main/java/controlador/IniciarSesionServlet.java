@@ -16,13 +16,10 @@ import java.util.Map;
 @WebServlet(name = "IniciarSesionServlet")
 public class IniciarSesionServlet extends HttpServletRedireccionable {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         //obtenemos la sesión
         HttpSession sesion = request.getSession(true);
-
-
+        //no hay ningún dato en la solicitud (solo su origen) -> acabamos de llegar a la página
         if (request.getParameter("origen") != null) {
-            //no hay ningún dato en la solicitud (solo su origen) -> acabamos de llegar a la página
             sesion.setAttribute("error", null);
             sesion.setAttribute("origen", request.getParameter("origen"));
             sesion.setAttribute("animaciones", true);

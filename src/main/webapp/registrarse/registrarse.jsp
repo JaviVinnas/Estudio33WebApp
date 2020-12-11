@@ -38,17 +38,81 @@
     <section>
         <p>Introduce tu nombre:</p>
         <label>
-            <input type="text" required="required" autocomplete="on" name="nombre" pattern="^[A-Za-z]{1,}">
+            <input type="text" required="required" autocomplete="on" name="nombre"
+                   pattern="^\S+( \S+)?$" title="El nombre no puede contener números">
         </label>
     </section>
     <section>
         <p>Introduce tus apellidos:</p>
         <label>
             <input type="text" required="required" autocomplete="on" name="apellidos"
-                   pattern="^[A-Z]{1}[a-z]{2,}[ ][A-Z]{1}[a-z]{2,}">
+                   pattern="^\S+ \S+$"
+                   title="Solo puede haber dos apellidos y solo pueden contener letras">
         </label>
     </section>
+    <section>
+        <p>Introduce tu contraseña:</p>
+        <label>
+            <input type="password" required="required" name="password" autocomplete="on" pattern="\S{8,}"
+                   title="La contraseña tiene que tener mínimo 8 caracteres">
+        </label>
+    </section>
+    <section>
+        <p>Introduce un correo electrónico de contacto:</p>
+        <label>
+            <input type="email" required="required" name="correo" autocomplete="on" pattern="^\S+@\S+\.\S+$"
+                   title="Una dirección de correo debe contener una símbolo '@' y un punto">
+        </label>
+    </section>
+    <section>
+        <p>Introduce un teléfono:</p>
+        <label>
+            <input type="number" required="required" name="telefono" autocomplete="on" pattern="^[0-9]{9}$"
+                   title="Un número de teléfono solo puede contener 9 cifras">
+        </label>
+    </section>
+    <section>
+        <p>Introduce una fecha de nacimiento:</p>
+        <label>
+            <input type="date" required="required" name="fecha_nacimiento" autocomplete="on" min="1900-12-11"
+                   max="2002-12-11" title="Recuerda que debes tener más de 18 años para registrarte">
+        </label>
+    </section>
+    <section>
+        <p>Selecciona el tipo de usuario que eres:</p>
+        <ul>
+            <li>
+                <input type="radio" id="r1" name="tipo_usuario" value="manager" required="required"><label for="r1">Actúas
+                como mánager para un artista o grupo</label>
+            </li>
+            <li>
+                <input type="radio" id="r2" name="tipo_usuario" value="artista"><label for="r2">Eres un artista o
+                grupo</label>
+            </li>
+            <li>
+                <input type="radio" id="r3" name="tipo_usuario" value="normal"><label for="r3">Otro</label>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <p>Introduce tu número de tarjeta bancaria para futuras compras:</p>
+        <input type="text" autocomplete="on" id="tarjeta" name="tarjeta"
+               pattern="^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
+               title="Las tarjetas bancarias tienen 4 grupos de 4 cifras numéricas separadas por guiones '-'">
+    </section>
+    <section>
+        <p>Introduce el pin de la tarjeta</p>
+        <input type="number" id="pin_tarjeta" name="pin_tarjeta" autocomplete="on" pattern="^[0-9]{4,6}$"
+               title="El pin de una tarjeta tiene entre 4 y 6 cifras numéricas">
+    </section>
+    <section>
+        <input type="submit" value="Registrarse en Estudio33">
+    </section>
 </form>
+
+
+<script src="${pageContext.request.contextPath}/assets/jQuery.js"></script>
+<script src="${pageContext.request.contextPath}/registrarse/registrarse.js"></script>
 
 
 </body>
