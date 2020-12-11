@@ -1,9 +1,6 @@
 package modelo;
 
-import javax.servlet.http.Part;
-import java.io.FileOutputStream;
-import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 
 public abstract class Usuario {
 
@@ -13,17 +10,17 @@ public abstract class Usuario {
     private String clave;
     private String correo;
     private int telefono;
-    private Date fecha_nacimiento;
+    private Date fechaNacimiento;
     private String tarjeta;
-    private int pin_tarjeta;
+    private int pinTarjeta;
 
 
-    public int getPin_tarjeta() {
-        return pin_tarjeta;
+    public int getPinTarjeta() {
+        return pinTarjeta;
     }
 
-    public void setPin_tarjeta(int pin_tarjeta) {
-        this.pin_tarjeta = pin_tarjeta;
+    public void setPinTarjeta(int pinTarjeta) {
+        this.pinTarjeta = pinTarjeta;
     }
 
     //usuario
@@ -79,12 +76,12 @@ public abstract class Usuario {
         this.telefono = telefono;
     }
 
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
 
