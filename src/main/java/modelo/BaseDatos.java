@@ -54,6 +54,28 @@ public class BaseDatos {
         }
     }
 
+
+    public boolean existeUsuario(Usuario usuario){
+        //declaramos variables
+        PreparedStatement stmUsuario = null;
+        try{
+            stmUsuario = conexion.prepareStatement("select * from usuarios where dni = ?");
+            stmUsuario.setString(1, usuario.getDni());
+            //comprobamos si hay un resultado
+            return stmUsuario.executeQuery().next();
+        }catch (SQLException e) {
+            out.println(e.getMessage());
+        } finally {
+            try {
+                assert stmUsuario != null;
+                stmUsuario.close();
+            } catch (SQLException e) {
+                out.println(e.getMessage());
+            }
+        }
+        return false;
+    }
+
     /*se le pasa un usuario con
         --DNI
         --contraseña
@@ -61,7 +83,7 @@ public class BaseDatos {
             --si existiera devuelve el usuario con todos sus campos
             --si no existiera devuelve nulo
         */
-    public Usuario existeUsuario(Usuario usuario) {
+    public Usuario autenticarUsuario(Usuario usuario) {
         //declaramos variables
         Usuario usuarioBd = null;
         PreparedStatement stmUsuario = null;
@@ -146,5 +168,4 @@ public class BaseDatos {
             }
         }
     }
-
 }

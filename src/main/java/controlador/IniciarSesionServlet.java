@@ -6,12 +6,10 @@ import modelo.UsuarioNormal;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Map;
 
 @WebServlet(name = "IniciarSesionServlet")
 public class IniciarSesionServlet extends HttpServletRedireccionable {
@@ -22,7 +20,6 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
         if (request.getParameter("origen") != null) {
             sesion.setAttribute("error", null);
             sesion.setAttribute("origen", request.getParameter("origen"));
-            sesion.setAttribute("animaciones", true);
             //vamos a la página
             gotoPage("iniciar_sesion", request, response);
         } else if (request.getParameter("dni") != null && request.getParameter("password") != null) {
@@ -32,7 +29,7 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
             usuario.setClave(request.getParameter("password"));
             //creamos una instancia de la base de datos
             BaseDatos bd = new BaseDatos(getServletContext(), response.getWriter());
-            usuario = bd.existeUsuario(usuario);
+            usuario = bd.autenticarUsuario(usuario);
             //cerramos la conexion con la bd
             bd.cerrarConexion();
             //si hemos encontrado usuario
@@ -42,7 +39,6 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
                 //volvemos a la página origen
                 gotoPage((String) sesion.getAttribute("origen"), request, response);
             } else {
-                sesion.setAttribute("animaciones", false);
                 sesion.setAttribute("error", true);
                 gotoPage("iniciar_sesion", request, response);
             }
