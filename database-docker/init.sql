@@ -46,10 +46,14 @@ VALUES ('39488522Y', 'Pepe', 'Flores Martinez', '1234567891011', 'pepe@gmail.com
 insert into usuarios(dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario, tarjeta)
 VALUES ('96586512A', 'Julio', 'Ju Martinez', 'xxdc', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal',
         '00A0-56DF-4S5C-33K7');
+
+
 INSERT INTO catalogo_tienda(id, nombre, categoria, descripcion, precio)
 VALUES ('cam1', 'Camiseta 1', 'ropa', 'camiseta mazo cómoda', 12.3);
 INSERT INTO catalogo_tienda(id, nombre, categoria, descripcion, precio)
 VALUES ('diskfirm', 'Disco firmado 1', 'disco', 'Disco firmado a elegir', 20.0);
+
+
 insert into existencias(tipo)
 values ('cam1');
 insert into existencias(tipo)

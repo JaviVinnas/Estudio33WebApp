@@ -46,8 +46,14 @@ public class RegistrarseServlet extends HttpServletRedireccionable {
             usuario.setCorreo(request.getParameter("correo"));
             usuario.setTelefono(Integer.parseInt(request.getParameter("telefono")));
             usuario.setFechaNacimiento(Date.valueOf(request.getParameter("fecha_nacimiento")));
-            usuario.setTarjeta(request.getParameter("tarjeta"));
-            usuario.setPinTarjeta(Integer.parseInt(request.getParameter("pin_tarjeta")));
+            //campos pueden estar vacíos (hay que terlo en cuenta)
+            if(!request.getParameter("tarjeta").equals("")){
+                usuario.setTarjeta(request.getParameter("tarjeta"));
+            }
+            if (!request.getParameter("pin_tarjeta").equals("")) {
+                usuario.setPinTarjeta(Integer.parseInt(request.getParameter("pin_tarjeta")));
+            }
+
             //si estuviera ya un usuario igual en la bd
             if (!bd.existeUsuario(usuario)) {
                 bd.registrarUsuario(usuario);

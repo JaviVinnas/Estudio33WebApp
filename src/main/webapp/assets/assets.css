@@ -126,6 +126,7 @@ nav ul {
     font-size: 1.4vw;
 }
 
+
 .banner_usuario {
     display: flex;
     flex-flow: row nowrap;
@@ -133,19 +134,47 @@ nav ul {
     align-items: center;
     align-content: center;
     border-radius: 3vw;
-    background-color: var(--color-acento);
-    color: var(--color-fondo);
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    border: solid;
+    border-width: .5vw;
+    border-color: var(--color-acento);
     font-family: 'Trueno Bold', serif;
-    font-size: 1.7vw;
-    margin: 1vw;
 }
-
 .banner_usuario * {
-    padding: .5vw;
+    padding: .3vw;
 }
 
 .id_usuario {
     margin-left: .7vw;
 }
+
+#ir_tienda {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+}
+
+#cerrar_sesion {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+}
+
+.svg-icon {
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    fill: var(--color-acento);
+    border: .5vw solid;
+    border-radius: 2vw;
+}
+
+
+
 
 

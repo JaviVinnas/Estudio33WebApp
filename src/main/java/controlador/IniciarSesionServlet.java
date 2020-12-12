@@ -17,7 +17,7 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
         //obtenemos la sesión
         HttpSession sesion = request.getSession(true);
         //no hay ningún dato en la solicitud (solo su origen) -> acabamos de llegar a la página
-        if (request.getParameter("origen") != null) {
+        if (request.getParameter("origen") != null && request.getParameter("cerrar_sesion") == null) {
             sesion.setAttribute("error", null);
             sesion.setAttribute("origen", request.getParameter("origen"));
             //vamos a la página
@@ -42,6 +42,12 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
                 sesion.setAttribute("error", true);
                 gotoPage("iniciar_sesion", request, response);
             }
+        } else if (request.getParameter("origen") != null && request.getParameter("cerrar_sesion") != null) {
+            //cerramos la sesión
+            sesion.setAttribute("usuario", null);
+            getServletContext().setAttribute("usuario", null);
+            //volvemos de donde hubieramos venido
+            gotoPage(request.getParameter("origen"), request, response);
         } else {
             throw new ServletException();
         }

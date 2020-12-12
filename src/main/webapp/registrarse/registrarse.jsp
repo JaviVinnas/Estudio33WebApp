@@ -32,7 +32,7 @@
     <section>
         <p>Introduce tu identificación (DNI):</p>
         <c:if test="${not empty error}">
-            <p class="error_login">Error en el registro: ya hay un usuario con este DNI</p>
+            <p class="error">Error en el registro: ya hay un usuario con este DNI</p>
         </c:if>
         <label>
             <input type="text" required="required" autocomplete="on" name="dni" pattern="^[0-9]{8}[A-Za-z]$">
@@ -104,13 +104,11 @@
                title="Las tarjetas bancarias tienen 4 grupos de 4 cifras numéricas separadas por guiones '-'">
     </section>
     <section>
-        <p>Introduce el pin de la tarjeta</p>
-        <input type="number" id="pin_tarjeta" name="pin_tarjeta" autocomplete="on" pattern="^[0-9]{4}$"
+        <p>Introduce el código CSC de la tarjeta</p>
+        <input type="number" id="pin_tarjeta" name="pin_tarjeta" autocomplete="on" pattern="^[0-9]{3}$"
                title="El pin de una tarjeta tiene entre 4 y 6 cifras numéricas">
     </section>
-    <section>
-        <input type="submit" value="Registrarse en Estudio33">
-    </section>
+    <input type="submit" value="Registrarse en Estudio33">
 </form>
 
 
