@@ -2,8 +2,10 @@ package modelo;
 
 import java.util.Map;
 
-public class Carrito {
+public final class Carrito extends GrupoElementosTienda{
 
-    Map<ElementoTienda,Integer> elementosCarrito;
+    public Carrito(){
+        super();
+    }
 
 }

@@ -13,7 +13,16 @@ public abstract class Usuario {
     private Date fechaNacimiento;
     private String tarjeta;
     private int pinTarjeta;
+    //carrito el usuario
+    private Carrito carrito;
 
+    public Carrito getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(Carrito carrito) {
+        this.carrito = carrito;
+    }
 
     public int getPinTarjeta() {
         return pinTarjeta;

@@ -54,9 +54,9 @@ public class RegistrarseServlet extends HttpServletRedireccionable {
                 usuario.setPinTarjeta(Integer.parseInt(request.getParameter("pin_tarjeta")));
             }
 
-            //si estuviera ya un usuario igual en la bd
+            //si no estuviera ya un usuario igual en la bd
             if (!bd.existeUsuario(usuario)) {
-                bd.registrarUsuario(usuario);
+                usuario = bd.registrarUsuario(usuario);
                 sesion.setAttribute("usuario", usuario);
                 getServletContext().setAttribute("usuario", usuario);
                 gotoPage((String) sesion.getAttribute("origen"), request, response);

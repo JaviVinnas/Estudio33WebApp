@@ -58,6 +58,12 @@ insert into existencias(tipo)
 values ('cam1');
 insert into existencias(tipo)
 values ('cam1');
+insert into existencias(tipo)
+values ('cam1');
+insert into existencias(tipo, usuario)
+values ('cam1', '39488522Y');
+insert into existencias(tipo, usuario)
+values ('cam1', '39488522Y');
 insert into existencias(tipo, usuario)
 values ('cam1', '39488522Y');
 insert into existencias(tipo)
