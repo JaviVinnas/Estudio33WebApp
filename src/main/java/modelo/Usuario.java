@@ -13,7 +13,7 @@ public abstract class Usuario {
     private Date fechaNacimiento;
     private String tarjeta;
     private int pinTarjeta;
-    //carrito el usuario
+    //carrito del usuario
     private Carrito carrito;
 
     public Carrito getCarrito() {

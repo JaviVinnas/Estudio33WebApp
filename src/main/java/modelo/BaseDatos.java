@@ -188,7 +188,7 @@ public class BaseDatos {
         PreparedStatement stmCarrito = null;
         ResultSet rsCarrito;
         try {
-            stmCarrito = conexion.prepareStatement("select ca.nombre,\n" +
+            stmCarrito = conexion.prepareStatement("select ca.id, ca.nombre,\n" +
                     "       ca.categoria,\n" +
                     "       ca.descripcion,\n" +
                     "       ca.precio,\n" +
@@ -201,7 +201,7 @@ public class BaseDatos {
                     "  and ex.usuario = ?\n" +
                     "  and ex.vendida = false\n" +
                     "group by ca.id\n" +
-                    "having count(ex.id) > 0");
+                    "having count(ex.id) > 0 order by ca.id");
             stmCarrito.setString(1, usuario.getDni());
             rsCarrito = stmCarrito.executeQuery();
             while (rsCarrito.next()) {
@@ -211,6 +211,7 @@ public class BaseDatos {
                 item.setIdElementoCatalogo(rsCarrito.getString("id"));
                 item.setNombre(rsCarrito.getString("nombre"));
                 item.setCategoria(rsCarrito.getString("categoria"));
+                item.setDescripcion(rsCarrito.getString("descripcion"));
                 item.setPrecio(rsCarrito.getFloat("precio"));
                 //se lo añadimos al catálogo
                 carrito.put(item, rsCarrito.getInt("cantidad"));
@@ -227,7 +228,7 @@ public class BaseDatos {
         }
         return carrito;
     }
-    
+
 
     /*
      * Devuelve el catálogo con los items de la tienda en los que
@@ -255,7 +256,7 @@ public class BaseDatos {
                     "  and existencias.usuario isnull\n" +
                     "  and existencias.vendida = false\n" +
                     "group by catalogo_tienda.id\n" +
-                    "having count(existencias.id) > 0");
+                    "having count(existencias.id) > 0 order by catalogo_tienda.id");
             rsCatalogo = stmCatalogo.executeQuery();
             while (rsCatalogo.next()) {
                 //reiniciamos el elemeno que metemos en el catálogo
@@ -264,6 +265,7 @@ public class BaseDatos {
                 item.setIdElementoCatalogo(rsCatalogo.getString("id"));
                 item.setNombre(rsCatalogo.getString("nombre"));
                 item.setCategoria(rsCatalogo.getString("categoria"));
+                item.setDescripcion(rsCatalogo.getString("descripcion"));
                 item.setPrecio(rsCatalogo.getFloat("precio"));
                 //se lo añadimos al catálogo
                 catalogo.put(item, rsCatalogo.getInt("cantidad"));
@@ -292,7 +294,7 @@ public class BaseDatos {
 
 
         //vemos la lista de existencias asignables
-        List<Existencia> existenciasDisponibles = this.existenciasAsignadasDe(elemento,null);
+        List<Existencia> existenciasDisponibles = this.existenciasAsignadasA(elemento, null);
 
         //si hubiera tantas o más disponibles de las que se solicitan
         if (existenciasDisponibles.size() >= cantidad) {
@@ -306,112 +308,162 @@ public class BaseDatos {
         return this.autenticarUsuario(usuario);
     }
 
-        /*
-         * Devuelve una lista con las existencias de un tipo concreto
-         * de elemento del catálogo que tiene un usuario en el carrito
-         *
-         * Si usuario fuera null de mostraría las existencias de ese elemnto que
-         * estuvieran disponibles para seleccionar por parte de un usuario
-         * */
+    /*
+     * Devuelve una lista con las existencias de un tipo concreto
+     * de elemento del catálogo que tiene un usuario en el carrito
+     *
+     * Si usuario fuera null de mostraría las existencias de ese elemnto que
+     * estuvieran disponibles para seleccionar por parte de un usuario
+     * */
 
-        private List<Existencia> existenciasAsignadasDe(ElementoCatalogo elemento, Usuario usuario){
-            List<Existencia> existencias = new ArrayList<>();
-            PreparedStatement stmExistencias = null;
-            ResultSet rsExistencias;
+    private List<Existencia> existenciasAsignadasA(ElementoCatalogo elemento, Usuario usuario) {
+        List<Existencia> existencias = new ArrayList<>();
+        PreparedStatement stmExistencias = null;
+        ResultSet rsExistencias;
+        try {
+            if (usuario == null) {
+                stmExistencias = conexion.prepareStatement("select existencias.id\n" +
+                        "from existencias\n" +
+                        "where existencias.tipo = ?\n" +
+                        "  and existencias.usuario isnull\n" +
+                        "  and existencias.vendida = false");
+                stmExistencias.setString(1, elemento.getIdElementoCatalogo());
+            } else {
+                stmExistencias = conexion.prepareStatement("select existencias.id\n" +
+                        "from existencias\n" +
+                        "where existencias.tipo = ?\n" +
+                        "  and existencias.usuario = ?\n" +
+                        "  and existencias.vendida = false");
+                stmExistencias.setString(1, elemento.getIdElementoCatalogo());
+                stmExistencias.setString(2, usuario.getDni());
+            }
+            rsExistencias = stmExistencias.executeQuery();
+            while (rsExistencias.next()) {
+                existencias.add(new Existencia(rsExistencias.getInt("id"), elemento));
+            }
+        } catch (SQLException e) {
+            out.println(e.getMessage());
+        } finally {
             try {
-                if(usuario == null){
-                    stmExistencias = conexion.prepareStatement("select existencias.id\n" +
-                            "from existencias\n" +
-                            "where existencias.tipo = ?\n" +
-                            "  and existencias.usuario isnull\n" +
-                            "  and existencias.vendida = false");
-                    stmExistencias.setString(1, elemento.getIdElementoCatalogo());
-                }else {
-                    stmExistencias = conexion.prepareStatement("select existencias.id\n" +
-                            "from existencias\n" +
-                            "where existencias.tipo = ?\n" +
-                            "  and existencias.usuario = ?\n" +
-                            "  and existencias.vendida = false");
-                    stmExistencias.setString(1, elemento.getIdElementoCatalogo());
-                    stmExistencias.setString(2, usuario.getDni());
-                }
-                rsExistencias = stmExistencias.executeQuery();
-                while (rsExistencias.next()) {
-                    existencias.add(new Existencia(rsExistencias.getInt("id"), elemento));
-                }
+                assert stmExistencias != null;
+                stmExistencias.close();
             } catch (SQLException e) {
                 out.println(e.getMessage());
-            } finally {
-                try {
-                    assert stmExistencias != null;
-                    stmExistencias.close();
-                } catch (SQLException e) {
-                    out.println(e.getMessage());
-                }
             }
-            return existencias;
         }
+        return existencias;
+    }
 
-        /*
-         * Para un usuario dado le reserva (mete en el carrito) la existencia pasada por argumentos
-         * */
+    /*
+     * Para un usuario dado le reserva (mete en el carrito) la existencia pasada por argumentos
+     * */
 
-        private void reservarExistencia (Usuario usuario, Existencia existencia){
-            PreparedStatement stmExistencias = null;
+    private void reservarExistencia(Usuario usuario, Existencia existencia) {
+        PreparedStatement stmExistencias = null;
+        try {
+            stmExistencias = conexion.prepareStatement("update existencias\n" +
+                    "set usuario = ?\n" +
+                    "where id = ?\n" +
+                    "  and tipo = ?;");
+            stmExistencias.setString(1, usuario.getDni());
+            stmExistencias.setInt(2, existencia.getIdExistencia());
+            stmExistencias.setString(3, existencia.getIdElementoCatalogo());
+            stmExistencias.executeUpdate();
+        } catch (SQLException e) {
+            out.println(e.getMessage());
+        } finally {
             try {
-                stmExistencias = conexion.prepareStatement("update existencias\n" +
-                        "set usuario = ?\n" +
-                        "where id = ?\n" +
-                        "  and tipo = ?;");
-                stmExistencias.setString(1, usuario.getDni());
-                stmExistencias.setInt(2, existencia.getIdExistencia());
-                stmExistencias.setString(3, existencia.getIdElementoCatalogo());
-                stmExistencias.executeUpdate();
+                assert stmExistencias != null;
+                stmExistencias.close();
             } catch (SQLException e) {
                 out.println(e.getMessage());
-            } finally {
-                try {
-                    assert stmExistencias != null;
-                    stmExistencias.close();
-                } catch (SQLException e) {
-                    out.println(e.getMessage());
-                }
             }
         }
-
-        private void eliminarExistencia(Usuario usuario, Existencia existencia){
-            PreparedStatement stmExistencias = null;
+    }
 
 
+    /*
+     * Dado un usuario y un elemento del catálogo borra x cantidad de existencias
+     * de ese tipo que el usuario pueda tener en us carrito
+     * */
+
+
+    public Usuario borrarDelCarrito(Usuario usuario, ElementoCatalogo elemento, int cantidad) {
+        //1º-> Obtenemos las existencias del tipo-elemento concreto que tiene el usuario en el carrito
+        List<Existencia> existenciasDelUsuario = this.existenciasAsignadasA(elemento, usuario);
+        //2º-> Vemos si hay más existencias como se pide para eliminar
+        if (existenciasDelUsuario.size() > cantidad) {
+            for (int i = 0; i < cantidad; i++) {
+                this.eliminarExistencia(existenciasDelUsuario.get(i));
+            }
+        } else {
+            //si no borraríamos todas las que tuviera en el carrito
+            existenciasDelUsuario.forEach(this::eliminarExistencia);
+        }
+        return autenticarUsuario(usuario);
+    }
+
+    /*
+     * Marca un item determinado del carrito como
+     * */
+
+    private void eliminarExistencia(Existencia existencia) {
+        PreparedStatement stmExistencias = null;
+        try {
+            stmExistencias = conexion.prepareStatement("update existencias\n" +
+                    "set usuario = null\n" +
+                    "where id = ? and tipo = ?\n");
+            stmExistencias.setInt(1, existencia.getIdExistencia());
+            stmExistencias.setString(2, existencia.getIdElementoCatalogo());
+            stmExistencias.executeUpdate();
+        } catch (SQLException e) {
+            out.println(e.getMessage());
+        } finally {
             try {
-                stmExistencias = conexion.prepareStatement("");
-                stmExistencias.setString(1, usuario.getDni());
-                stmExistencias.setInt(2, existencia.getIdExistencia());
-                stmExistencias.setString(3, existencia.getIdElementoCatalogo());
-                stmExistencias.executeUpdate();
+                assert stmExistencias != null;
+                stmExistencias.close();
             } catch (SQLException e) {
                 out.println(e.getMessage());
-            } finally {
-                try {
-                    assert stmExistencias != null;
-                    stmExistencias.close();
-                } catch (SQLException e) {
-                    out.println(e.getMessage());
-                }
-            }
-
-
-        }
-
-        public void borrarDelCarrito(Usuario usuario, ElementoCatalogo elemento, int cantidad){
-            //1º->obtenemos las existencias del tipo-elemento concreto que tiene el usuario en el carrito
-            List<Existencia> existenciasDelUsuario = this.existenciasAsignadasDe(elemento,usuario);
-            //vemos si hay más existencias como se pide para eliminar
-            if(existenciasDelUsuario.size() > cantidad){
-                for (int i = 0; i < cantidad; i++) {
-
-                }
             }
         }
+
 
     }
+
+
+    /*
+     * Añade las existencias del usuario que tuviera en su carrito como pagadas,
+     *  y vacía su carrito
+     * */
+
+    public Usuario pasarPorCaja(Usuario usuario) {
+
+        usuario.getCarrito().keySet().forEach(elementoCatalogo -> existenciasAsignadasA(elementoCatalogo, usuario).forEach(this::marcarExistenciaComoVendida));
+
+        return autenticarUsuario(usuario);
+
+    }
+
+    private void marcarExistenciaComoVendida(Existencia existencia) {
+        PreparedStatement stmExistencias = null;
+        try {
+            stmExistencias = conexion.prepareStatement("update existencias\n" +
+                    "set vendida = true\n" +
+                    "where id = ? and tipo = ?");
+            stmExistencias.setInt(1, existencia.getIdExistencia());
+            stmExistencias.setString(2, existencia.getIdElementoCatalogo());
+            stmExistencias.executeUpdate();
+        } catch (SQLException e) {
+            out.println(e.getMessage());
+        } finally {
+            try {
+                assert stmExistencias != null;
+                stmExistencias.close();
+            } catch (SQLException e) {
+                out.println(e.getMessage());
+            }
+        }
+    }
+
+
+}

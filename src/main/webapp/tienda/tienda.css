@@ -1,0 +1,16 @@
+@import "../assets/fonts/fuentes.css";
+@import "../assets/assets.css";
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-acento: #FED0BB;
+    --color-fondo: #000411;
+}
+
+
+

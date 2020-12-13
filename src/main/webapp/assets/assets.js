@@ -14,7 +14,13 @@ $(document).ready(function () {
 
 //todo: acciona el input del form de ir a la tienda
 
-//todo: acciona el input de bienvenido pepe con cerrar sesion
+$(document).ready(function () {
+    $('#icono-tienda').click(function () {
+        $('#ir_tienda').click();
+    })
+})
+
+
 $(document).ready(function () {
     $('#id_usuario').click(function () {
         $('#cerrar_sesion').click();

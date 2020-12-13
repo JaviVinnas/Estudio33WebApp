@@ -44,7 +44,7 @@ CREATE TABLE existencias
 insert into usuarios(dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario)
 VALUES ('39488522Y', 'Pepe', 'Flores Martinez', '1234567891011', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal');
 insert into usuarios(dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario, tarjeta)
-VALUES ('96586512A', 'Julio', 'Ju Martinez', 'xxdc', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal',
+VALUES ('96586512A', 'Julio', 'Ju Martinez', 'xxd4hs3654s4hdc', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal',
         '00A0-56DF-4S5C-33K7');
 
 
@@ -71,4 +71,4 @@ values ('diskfirm');
 insert into existencias(tipo)
 values ('diskfirm');
 insert into existencias(tipo, usuario)
-values ('diskfirm', '39488522Y');
+values ('diskfirm', '96586512A');

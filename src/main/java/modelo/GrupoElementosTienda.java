@@ -1,10 +1,11 @@
 package modelo;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
-public abstract class GrupoElementosTienda extends HashMap<ElementoCatalogo,Integer>{
+public abstract class GrupoElementosTienda extends TreeMap<ElementoCatalogo, Integer> {
 
-    public GrupoElementosTienda(){
+    public GrupoElementosTienda() {
         super();
     }
 
