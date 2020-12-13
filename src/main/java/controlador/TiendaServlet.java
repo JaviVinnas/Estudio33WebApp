@@ -66,7 +66,8 @@ public class TiendaServlet extends HttpServletRedireccionable {
             //cerramos la conexión con la bd
             bd.cerrarConexion();
             gotoPage("tienda", request, response);
-
+            //todo: copiar el <nav> de index.jsp al resto de páginas .jsp
+            //todo: dar formato especial a el icono de la tienda cuando estamos en la tienda
         }
     }
 
