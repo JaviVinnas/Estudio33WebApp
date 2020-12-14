@@ -239,35 +239,30 @@ public class BaseDatos {
      * Si no hubiera ningún elemnto disponible devolvería null
      * */
     public CatalogoTienda getItemsCatalogoDisponibles() {
-        ElementoCatalogo item;
-        CatalogoTienda catalogo = new CatalogoTienda();
+        CatalogoTienda catalogoTienda = new CatalogoTienda();
+        this.elementosDelCatalogo().forEach( elementoCatalogo -> catalogoTienda.put(elementoCatalogo, this.numExistenciasDe(elementoCatalogo)));
+        return catalogoTienda;
+    }
+
+    /*
+     * Devuelve los elementos del catálogo que haya (NO EXISTENCIAS)
+     * */
+    private List<ElementoCatalogo> elementosDelCatalogo() {
+        ElementoCatalogo elementoCatalogo;
+        List<ElementoCatalogo> elementosCatalogo = new ArrayList<>();
         PreparedStatement stmCatalogo = null;
         ResultSet rsCatalogo;
         try {
-            stmCatalogo = conexion.prepareStatement("select catalogo_tienda.id,\n" +
-                    "       catalogo_tienda.nombre,\n" +
-                    "       catalogo_tienda.categoria,\n" +
-                    "       catalogo_tienda.descripcion,\n" +
-                    "       catalogo_tienda.precio,\n" +
-                    "       count(existencias.id) as cantidad\n" +
-                    "from catalogo_tienda,\n" +
-                    "     existencias\n" +
-                    "where catalogo_tienda.id = existencias.tipo\n" +
-                    "  and existencias.usuario isnull\n" +
-                    "  and existencias.vendida = false\n" +
-                    "group by catalogo_tienda.id\n");
+            stmCatalogo = conexion.prepareStatement("select id, nombre, categoria, descripcion, precio from catalogo_tienda");
             rsCatalogo = stmCatalogo.executeQuery();
             while (rsCatalogo.next()) {
-                //reiniciamos el elemeno que metemos en el catálogo
-                item = new ElementoCatalogo();
-                //lo cargamos
-                item.setIdElementoCatalogo(rsCatalogo.getString("id"));
-                item.setNombre(rsCatalogo.getString("nombre"));
-                item.setCategoria(rsCatalogo.getString("categoria"));
-                item.setDescripcion(rsCatalogo.getString("descripcion"));
-                item.setPrecio(rsCatalogo.getFloat("precio"));
-                //se lo añadimos al catálogo
-                catalogo.put(item, rsCatalogo.getInt("cantidad"));
+                elementoCatalogo = new ElementoCatalogo();
+                elementoCatalogo.setIdElementoCatalogo(rsCatalogo.getString("id"));
+                elementoCatalogo.setNombre(rsCatalogo.getString("nombre"));
+                elementoCatalogo.setCategoria(rsCatalogo.getString("categoria"));
+                elementoCatalogo.setDescripcion(rsCatalogo.getString("descripcion"));
+                elementoCatalogo.setPrecio(rsCatalogo.getFloat("precio"));
+                elementosCatalogo.add(elementoCatalogo);
             }
         } catch (SQLException e) {
             out.println(e.getMessage());
@@ -279,17 +274,37 @@ public class BaseDatos {
                 out.println(e.getMessage());
             }
         }
-        return catalogo;
-        //todo: cambiar esta función como combinación de las dos funciones de abajo (por hacer)
+        return elementosCatalogo;
     }
+
     /*
-    * Devuelve los elementos del catálogo que haya (NO EXISTENCIAS)
-    * */
-    private List<ElementoCatalogo> elementosDelCatalogo(){return null;}
-    /*
-    * Para un elemnto del catálogo devuelve las cantidad de existencias que hubiera de el
-    * */
-    private Integer cantidadExistenciasDe(ElementoCatalogo elementoCatalogo){return null;}
+     * Para un elemnto del catálogo devuelve las cantidad de existencias que hubiera de el
+     * */
+    private Integer numExistenciasDe(ElementoCatalogo elementoCatalogo) {
+        int cantidad = 0;
+        PreparedStatement stmExistencias = null;
+        ResultSet rsExistencias;
+        try {
+            stmExistencias = conexion.prepareStatement("select count(*) as num\n" +
+                    "from existencias\n" +
+                    "where tipo = ? and usuario isnull and vendida = false");
+            stmExistencias.setString(1, elementoCatalogo.getIdElementoCatalogo());
+            rsExistencias = stmExistencias.executeQuery();
+            while (rsExistencias.next()){
+                cantidad = rsExistencias.getInt("num");
+            }
+        } catch (SQLException e) {
+            out.println(e.getMessage());
+        } finally {
+            try {
+                assert stmExistencias != null;
+                stmExistencias.close();
+            } catch (SQLException e) {
+                out.println(e.getMessage());
+            }
+        }
+        return cantidad;
+    }
 
     /*
      * Para un usuario pasado por argumentos se le reservan tantas
@@ -396,7 +411,7 @@ public class BaseDatos {
      * */
 
 
-    public Usuario borrarDelCarrito(Usuario usuario, ElementoCatalogo elemento, int cantidad) {
+    public Usuario borrarCarrito(Usuario usuario, ElementoCatalogo elemento, int cantidad) {
         //1º-> Obtenemos las existencias del tipo-elemento concreto que tiene el usuario en el carrito
         List<Existencia> existenciasDelUsuario = this.existenciasAsignadasA(elemento, usuario);
         //2º-> Vemos si hay más existencias como se pide para eliminar
@@ -406,6 +421,17 @@ public class BaseDatos {
             }
         } else {
             //si no borraríamos todas las que tuviera en el carrito
+            existenciasDelUsuario.forEach(this::eliminarExistencia);
+        }
+        return autenticarUsuario(usuario);
+    }
+
+
+    //borra las existencias que un usuario pasado por argumentos tuviera en el carrito
+    public Usuario borrarCarrito(Usuario usuario){
+        List<ElementoCatalogo> catalogo = elementosDelCatalogo();
+        for(ElementoCatalogo posibleElemento : catalogo){
+            List<Existencia> existenciasDelUsuario = this.existenciasAsignadasA(posibleElemento, usuario);
             existenciasDelUsuario.forEach(this::eliminarExistencia);
         }
         return autenticarUsuario(usuario);

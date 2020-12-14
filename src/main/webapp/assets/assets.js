@@ -12,8 +12,6 @@ $(document).ready(function () {
     }
 )
 
-//todo: acciona el input del form de ir a la tienda
-
 $(document).ready(function () {
     $('#icono-tienda').click(function () {
         $('#ir_tienda').click();

@@ -56,13 +56,13 @@
                             <div class="dropdown_info">
                                 <ul id="dropdown_list">
                                     <li>
-                                        <form method="post" action="IniciarSesionServlet">
+                                        <form method="post" action="${pageContext.request.contextPath}/IniciarSesionServlet">
                                             <input type="hidden" name="origen" value="index">
                                             <input type="submit" name="iniciar_sesion" value="Iniciar sesión">
                                         </form>
                                     </li>
                                     <li>
-                                        <form method="post" action="RegistrarseServlet">
+                                        <form method="post" action="${pageContext.request.contextPath}/RegistrarseServlet">
                                             <input type="hidden" name="origen" value="index">
                                             <input type="submit" name="registrarse" value="Registrarse">
                                         </form>
@@ -75,14 +75,14 @@
                 <c:otherwise>
                     <li class="seccion_normal">
                         <div class="banner_usuario">
-                            <form method="post" action="IniciarSesionServlet">
+                            <form method="post" action="${pageContext.request.contextPath}/IniciarSesionServlet">
                                 <input id="cerrar_sesion" type="submit" name="cerrar_sesion" value="cerrar_sesion">
                                 <input type="hidden" name="origen" value="index">
                                 <div class="id_usuario" id="id_usuario"> Bienvenido <c:out
                                         value="${usuario.nombre}"/></div>
                             </form>
                             <div class="wrapper_icono_tienda">
-                                <form method="post" action="TiendaServlet">
+                                <form method="post" action="${pageContext.request.contextPath}/TiendaServlet">
                                     <input id="ir_tienda" type="submit" name="tienda" value="tienda">
                                     <input type="hidden" name="origen" value="index">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

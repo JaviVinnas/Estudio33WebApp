@@ -35,4 +35,28 @@
         <url-pattern>/IniciarSesionServlet</url-pattern>
     </servlet-mapping>
 
+    <env-entry>
+        <env-entry-name>email</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>estudio33@gmail.com</env-entry-value>
+    </env-entry>
+
+    <env-entry>
+        <env-entry-name>telefono</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>+34 986 949 229</env-entry-value>
+    </env-entry>
+
+    <env-entry>
+        <env-entry-name>address</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>Calle Real 156 Barcelona</env-entry-value>
+    </env-entry>
+
+    <env-entry>
+        <env-entry-name>year_zero</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
+        <env-entry-value>1992</env-entry-value>
+    </env-entry>
+
 </web-app>

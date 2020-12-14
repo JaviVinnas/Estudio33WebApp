@@ -1,13 +1,12 @@
 package controlador;
 
-import modelo.BaseDatos;
-import modelo.CatalogoTienda;
-import modelo.ElementoCatalogo;
-import modelo.Usuario;
+import modelo.*;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,6 +14,8 @@ import java.io.IOException;
 
 @WebServlet(name = "TiendaServlet")
 public class TiendaServlet extends HttpServletRedireccionable {
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //obtenemos la sesión
         HttpSession sesion = request.getSession(true);
@@ -33,6 +34,8 @@ public class TiendaServlet extends HttpServletRedireccionable {
             sesion.setAttribute("usuario", usuario);
             //metemos además el precio total del carrito actual del usuario
             sesion.setAttribute("precio_total", usuario.getCarrito().getPrecioTotal());
+            //ponemos la opcion caja a null
+            sesion.setAttribute("caja",null);
             //cerramos la conexion
             bd.cerrarConexion();
             //vamos a la página de la tienda
@@ -53,7 +56,7 @@ public class TiendaServlet extends HttpServletRedireccionable {
             if(request.getParameter("add_al_carrito") != null){
                 usuarioActualizado = bd.addAlCarrito(usuarioAntiguo, elemento, cantidad);
             }else {
-                usuarioActualizado = bd.borrarDelCarrito(usuarioAntiguo, elemento, cantidad);
+                usuarioActualizado = bd.borrarCarrito(usuarioAntiguo, elemento, cantidad);
             }
             getServletContext().setAttribute("usuario", usuarioActualizado);
             sesion.setAttribute("usuario", usuarioActualizado);
@@ -63,11 +66,41 @@ public class TiendaServlet extends HttpServletRedireccionable {
             CatalogoTienda catalogo = bd.getItemsCatalogoDisponibles();
             //la metemos en la sesión
             sesion.setAttribute("catalogo", catalogo);
+            //ponemos la opción de ir a la caja a null
+            sesion.setAttribute("caja",null);
             //cerramos la conexión con la bd
             bd.cerrarConexion();
             gotoPage("tienda", request, response);
-            //todo: copiar el <nav> de index.jsp al resto de páginas .jsp
             //todo: dar formato especial a el icono de la tienda cuando estamos en la tienda
+        }else if(request.getParameter("pasar_por_caja") != null){
+            sesion.setAttribute("caja",true);
+            //obtenemos datos del XML
+            try {
+                Context env = (Context) new InitialContext().lookup("java:comp/env");
+                sesion.setAttribute("email", env.lookup("email"));
+                sesion.setAttribute("telefono", env.lookup("telefono"));
+                sesion.setAttribute("address", env.lookup("address"));
+                sesion.setAttribute("year_zero", env.lookup("year_zero"));
+                gotoPage("tienda", request, response);
+                //borramos el carrito del usuario
+                Usuario usuarioActualizado = bd.pasarPorCaja((Usuario) sesion.getAttribute("usuario"));
+                //lo reintroducimos en la sesión
+                getServletContext().setAttribute("usuario", usuarioActualizado);
+                sesion.setAttribute("usuario", usuarioActualizado);
+            } catch (NamingException e) {
+                e.printStackTrace();
+            }
+
+        }else if(request.getParameter("volver_a_la_tienda") != null){
+            sesion.setAttribute("caja",null);
+            //cargamos una variable catálogo con la cantidad de elementos disponibles de cada clase
+            CatalogoTienda catalogo = bd.getItemsCatalogoDisponibles();
+            //la metemos en la sesión
+            sesion.setAttribute("catalogo", catalogo);
+            //metemos además el precio total del carrito actual del usuario
+            sesion.setAttribute("precio_total", ((Usuario)sesion.getAttribute("usuario")).getCarrito().getPrecioTotal());
+
+            gotoPage("tienda", request, response);
         }
     }
 

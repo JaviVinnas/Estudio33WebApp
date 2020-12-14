@@ -85,12 +85,11 @@
         <p>Selecciona el tipo de usuario que eres:</p>
         <ul>
             <li>
-                <input type="radio" id="r1" name="tipo_usuario" value="manager" required="required"><label for="r1">Actúas
-                como mánager para un artista o grupo</label>
+                <input type="radio" id="r1" name="tipo_usuario" value="manager" required="required"><label for="r1">Soy mánager de un artista o grupo musical</label>
             </li>
             <li>
-                <input type="radio" id="r2" name="tipo_usuario" value="artista"><label for="r2">Eres un artista o
-                grupo</label>
+                <input type="radio" id="r2" name="tipo_usuario" value="artista"><label for="r2">Soy un artista o
+                grupo musical</label>
             </li>
             <li>
                 <input type="radio" id="r3" name="tipo_usuario" value="normal"><label for="r3">Otro</label>

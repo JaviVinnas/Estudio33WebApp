@@ -14,6 +14,8 @@ import java.io.IOException;
 @WebServlet(name = "IniciarSesionServlet")
 public class IniciarSesionServlet extends HttpServletRedireccionable {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //creamos una instancia de la base de datos
+        BaseDatos bd = new BaseDatos(getServletContext(), response.getWriter());
         //obtenemos la sesión
         HttpSession sesion = request.getSession(true);
         //no hay ningún dato en la solicitud (solo su origen) -> acabamos de llegar a la página
@@ -27,11 +29,7 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
             Usuario usuario = new UsuarioNormal();
             usuario.setDni(request.getParameter("dni"));
             usuario.setClave(request.getParameter("password"));
-            //creamos una instancia de la base de datos
-            BaseDatos bd = new BaseDatos(getServletContext(), response.getWriter());
             usuario = bd.autenticarUsuario(usuario);
-            //cerramos la conexion con la bd
-            bd.cerrarConexion();
             //si hemos encontrado usuario
             if (usuario != null) {
                 sesion.setAttribute("usuario", usuario);
@@ -44,15 +42,14 @@ public class IniciarSesionServlet extends HttpServletRedireccionable {
             }
         } else if (request.getParameter("origen") != null && request.getParameter("cerrar_sesion") != null) {
             //cerramos la sesión
+            bd.borrarCarrito((Usuario) sesion.getAttribute("usuario"));
             sesion.setAttribute("usuario", null);
             getServletContext().setAttribute("usuario", null);
             //volvemos de donde hubieramos venido
             gotoPage(request.getParameter("origen"), request, response);
-        } else {
-            throw new ServletException();
         }
-
-
+        //cerramos la conexion con la bd
+        bd.cerrarConexion();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
