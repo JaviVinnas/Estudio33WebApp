@@ -112,13 +112,21 @@
                     <div>Descripcion: ${entry.key.descripcion}</div>
                     <!-- Precio -->
                     <div>Precio: ${entry.key.precio}</div>
-                    <!-- Existencias -->
-                    <div>Existencias disponibles: ${entry.value}</div>
-                    <label>Selecciona el número de elementos que quieras añadir
-                        <input type="number" required min="1" max="${entry.value}" name="numero_existencias">
-                    </label>
-                    <!-- Boton de enviar -->
-                    <input type="submit" name="add_al_carrito" value="Añadir">
+                    <c:choose>
+                        <c:when test="${entry.value eq 0}">
+                            <div>SOLD OUT</div>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- Existencias -->
+                            <div>Existencias disponibles: ${entry.value}</div>
+                            <label>Selecciona el número de elementos que quieras añadir
+                                <input type="number" required min="1" max="${entry.value}" name="numero_existencias">
+                            </label>
+                            <!-- Boton de enviar -->
+                            <input type="submit" name="add_al_carrito" value="Añadir">
+                        </c:otherwise>
+                    </c:choose>
+
                 </form>
             </div>
         </c:forEach>

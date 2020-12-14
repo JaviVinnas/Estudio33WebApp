@@ -255,8 +255,7 @@ public class BaseDatos {
                     "where catalogo_tienda.id = existencias.tipo\n" +
                     "  and existencias.usuario isnull\n" +
                     "  and existencias.vendida = false\n" +
-                    "group by catalogo_tienda.id\n" +
-                    "having count(existencias.id) > 0 order by catalogo_tienda.id");
+                    "group by catalogo_tienda.id\n");
             rsCatalogo = stmCatalogo.executeQuery();
             while (rsCatalogo.next()) {
                 //reiniciamos el elemeno que metemos en el catálogo
@@ -281,7 +280,16 @@ public class BaseDatos {
             }
         }
         return catalogo;
+        //todo: cambiar esta función como combinación de las dos funciones de abajo (por hacer)
     }
+    /*
+    * Devuelve los elementos del catálogo que haya (NO EXISTENCIAS)
+    * */
+    private List<ElementoCatalogo> elementosDelCatalogo(){return null;}
+    /*
+    * Para un elemnto del catálogo devuelve las cantidad de existencias que hubiera de el
+    * */
+    private Integer cantidadExistenciasDe(ElementoCatalogo elementoCatalogo){return null;}
 
     /*
      * Para un usuario pasado por argumentos se le reservan tantas
