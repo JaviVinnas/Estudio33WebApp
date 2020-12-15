@@ -9,3 +9,15 @@ $('#tarjeta').on('input', function () {
         $('#pin_tarjeta').prop('required', true);
     }
 })
+
+$(document).ready(function () {
+
+    let hoy = new Date();
+
+    let fecha_mas_antigua = (hoy.getFullYear()-120)+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
+    let fecha_mas_reciente = (hoy.getFullYear()-18)+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
+    let selector_fecha = $('input[type="date"]');
+
+    selector_fecha.attr("min", fecha_mas_antigua);
+    selector_fecha.attr("max", fecha_mas_reciente);
+})

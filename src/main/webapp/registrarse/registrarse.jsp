@@ -30,7 +30,7 @@
 
 <form method="post" action="RegistrarseServlet">
     <section>
-        <p>Introduce tu identificación (DNI):</p>
+        <p>Introduce tu DNI (obligatorio):</p>
         <c:if test="${not empty error}">
             <p class="error">Error en el registro: ya hay un usuario con este DNI</p>
         </c:if>
@@ -39,14 +39,14 @@
         </label>
     </section>
     <section>
-        <p>Introduce tu nombre:</p>
+        <p>Introduce tu nombre (obligatorio):</p>
         <label>
             <input type="text" required="required" autocomplete="on" name="nombre"
                    pattern="^\S+( \S+)?$" title="El nombre no puede contener números">
         </label>
     </section>
     <section>
-        <p>Introduce tus apellidos:</p>
+        <p>Introduce tus apellidos (obligatorio):</p>
         <label>
             <input type="text" required="required" autocomplete="on" name="apellidos"
                    pattern="^\S+ \S+$"
@@ -54,35 +54,35 @@
         </label>
     </section>
     <section>
-        <p>Introduce tu contraseña:</p>
+        <p>Introduce tu (obligatorio):</p>
         <label>
             <input type="password" required="required" name="password" autocomplete="on" pattern="\S{8,}"
                    title="La contraseña tiene que tener mínimo 8 caracteres">
         </label>
     </section>
     <section>
-        <p>Introduce un correo electrónico de contacto:</p>
+        <p>Introduce un correo electrónico de contacto (obligatorio):</p>
         <label>
             <input type="email" required="required" name="correo" autocomplete="on" pattern="^\S+@\S+\.\S+$"
                    title="Una dirección de correo debe contener una símbolo '@' y un punto">
         </label>
     </section>
     <section>
-        <p>Introduce un teléfono:</p>
+        <p>Introduce un teléfono (obligatorio):</p>
         <label>
             <input type="number" required="required" name="telefono" autocomplete="on" pattern="^[0-9]{9}$"
                    title="Un número de teléfono solo puede contener 9 cifras">
         </label>
     </section>
     <section>
-        <p>Introduce una fecha de nacimiento:</p>
+        <p>Introduce una fecha de nacimiento (obligatorio):</p>
         <label>
-            <input type="date" required="required" name="fecha_nacimiento" autocomplete="on" min="1900-12-11"
-                   max="2002-12-11" title="Recuerda que debes tener más de 18 años para registrarte">
+            <input type="date" required="required" name="fecha_nacimiento" autocomplete="on"
+                   title="Recuerda que debes tener más de 18 años para registrarte">
         </label>
     </section>
     <section>
-        <p>Selecciona el tipo de usuario que eres:</p>
+        <p>Selecciona el tipo de usuario que eres (obligatorio):</p>
         <ul>
             <li>
                 <input type="radio" id="r1" name="tipo_usuario" value="manager" required="required"><label for="r1">Soy mánager de un artista o grupo musical</label>

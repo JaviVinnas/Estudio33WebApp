@@ -13,4 +13,249 @@
 }
 
 
+/*barra de desplazamiento*/
+
+::-webkit-scrollbar {
+    width: 20px;
+    background-color: rgba(0, 0, 0, 0.0);
+    color: rgba(0, 0, 0, 0.0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 90px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-acento);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+}
+
+/**//**//**//**//**//**//**//**//**//**//**//**/
+/*Parte donde tenemos el carrito y el catálogo*/
+/**//**//**//**//**//**//**//**//**//**//**//**/
+
+#carrito_catalogo, #pseudo_caja {
+    margin-top: 3vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: start;
+    align-content: center;
+}
+
+h1 {
+    font-family: "Trueno Bold Outline Italic";
+    font-size: 3.7vw;
+}
+
+h2 {
+    font-family: "Trueno Bold", serif;
+    font-size: 2.2vw;
+}
+
+/*Las dos partes, tanto carrito como catálogo*/
+#parte_catalogo, #parte_carrito, #tiket_compra {
+    width: 35%;
+    padding: 2vw;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    border: solid;
+    border-radius: 5vw;
+
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: start;
+    align-content: center;
+}
+
+.elemento-catalogo, .elemento-carrito, .unidad_comprada {
+    margin: 1vw;
+    padding: 1vw;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: start;
+    align-content: center;
+    font-family: "Trueno Regular", serif;
+    font-size: 1.7vw;
+    border: solid;
+    border-width: .5vw;
+    border-color: var(--color-fondo);
+    border-radius: 2vw;
+}
+
+
+.elemento-catalogo input[type=submit], .elemento-carrito input[type=submit] {
+    display: inline;
+    text-align: center;
+    /* width: -webkit-fill-available; */
+    padding: 1vw;
+    margin: 1vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    font-family: "Trueno Bold", serif;
+    font-size: 1.5vw;
+    border-radius: 1.2vw;
+}
+
+
+input[type=number] {
+    display: inline;
+    background-color: var(--color-acento);
+    border-radius: .5vw;
+    font-size: 1.7vw;
+    color: var(--color-fondo);
+    font-family: "Trueno Regular", serif;
+    border-width: .3vw;
+    padding: .3vw;
+}
+
+#forms_quitar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+
+.precio_carrito {
+    font-family: "Trueno Bold", serif;
+    /* display: inline; */
+    text-align: center;
+    width: -webkit-fill-available;
+    padding: 1vw;
+    margin: 1vw;
+    font-size: 2.2vw;
+}
+
+#boton_pagar {
+    display: inline;
+    text-align: center;
+    width: -webkit-fill-available;
+    padding: 1vw;
+    margin: 1vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    font-family: "Trueno Bold", serif;
+    font-size: 2.5vw;
+    border-radius: 1.2vw;
+}
+
+/**//**//**//**//**/
+/*Parte de la caja*/
+/**//**//**//**//**/
+
+#caja {
+    margin-top: 3vw;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    width: -webkit-fill-available;
+}
+
+#tiket_compra{
+    width: 60%;
+}
+
+
+#volver_a_la_tienda {
+    display: inline;
+    text-align: center;
+    width: -webkit-fill-available;
+    padding: 1vw;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    font-family: "Trueno Bold", serif;
+    font-size: 2.5vw;
+    border-radius: 1.2vw;
+    margin: 3vw;
+}
+
+#info_tienda {
+    display: inline;
+    text-align: center;
+    margin: 2vw;
+    font-family: "Trueno Regular", serif;
+    font-size: 1.5vw;
+}
+
+/*animaciones*/
+
+.caja_animar{
+    animation: slideUp .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: both;
+}
+
+.parte_catalogo_animar{
+    animation: slideUp .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: both;
+    animation-delay: 0s;
+}
+
+
+.parte_carrito_animar{
+    animation: slideUp .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: both;
+    animation-delay: .3s;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%) scale(0);
+    }
+    100% {
+        transform: translateY(0%) scale(1);
+    }
+}
+
+
+
+footer {
+    position: absolute;
+    display: inline-block;
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    width: 100%;
+    margin-top: 2vw;
+    margin-bottom: 0;
+    border-top-left-radius: 90px;
+}
+
+.texto_centrado_footer {
+    display: inline-block;
+    position: relative;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+    font-family: "Trueno Light", serif;
+    font-size: 1.5vw;
+    margin-left: 30vw;
+}
+
+footer div {
+    float: right;
+    font-family: 'Trueno ExtraBold Outline Italic', serif;
+    font-size: 3.7vw;
+    transform: all .5s;
+}
+
+.logo {
+    margin-right: 1.5vw;
+}
 
