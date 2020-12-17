@@ -23,6 +23,13 @@ nav ul {
     font-size: 3.7vw;
 }
 
+.seccion_homepage_destacada{
+    display: inline-block;
+    position: relative;
+    font-family: 'Trueno ExtraBold Outline Italic', serif;
+    font-size: 3.7vw;
+}
+
 .seccion_homepage a {
     display: inline-block;
     background: var(--color-fondo);
@@ -39,6 +46,19 @@ nav ul {
     background: var(--color-acento);
     color: var(--color-fondo);
 }
+
+.seccion_homepage_destacada a {
+    display: inline-block;
+    background: var(--color-acento);
+    color: var(--color-fondo);
+    padding: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: all .3s;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+}
+
 
 .resto_de_secciones {
     position: relative;

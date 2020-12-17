@@ -54,7 +54,7 @@
         </label>
     </section>
     <section>
-        <p>Introduce tu (obligatorio):</p>
+        <p>Introduce tu contraseña (obligatorio):</p>
         <label>
             <input type="password" required="required" name="password" autocomplete="on" pattern="\S{8,}"
                    title="La contraseña tiene que tener mínimo 8 caracteres">

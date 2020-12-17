@@ -116,7 +116,7 @@
                                 <!-- Descripcion -->
                                 <div>${entry.key.descripcion}</div>
                                 <!-- Categoria -->
-                                <div>Tipo: ${entry.key.categoria}</div>
+                                <div>Categoria: <i>${entry.key.categoria}</i></div>
                                 <!-- Precio -->
                                 <div>Precio: <b>${entry.key.precio}&euro;</b></div>
                                 <c:choose>

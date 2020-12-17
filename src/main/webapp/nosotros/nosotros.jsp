@@ -41,7 +41,7 @@
                     Clientes
                 </a>
             </li>
-            <li class="seccion_normal">
+            <li class="seccion_destacada">
                 <a href="${pageContext.request.contextPath}/nosotros/nosotros.jsp">
                     Nosotros
                 </a>

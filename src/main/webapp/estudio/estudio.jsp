@@ -25,7 +25,7 @@
             </a>
         </li>
         <div class="resto_de_secciones">
-            <li class="seccion_normal">
+            <li class="seccion_destacada">
                 <a href="${pageContext.request.contextPath}/estudio/estudio.jsp">
                     El estudio
                 </a>

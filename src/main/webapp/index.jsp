@@ -11,6 +11,7 @@
     <meta name="author" content="Javier Rodríguez Viñas">
     <meta name="copyright" content="Javier Rodríguez Viñas"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/assets.css">
     <title>Estudio 33</title>
 
 </head>
@@ -21,7 +22,7 @@
 
 <nav>
     <ul>
-        <li class="seccion_homepage">
+        <li class="seccion_homepage_destacada">
             <a href="${pageContext.request.contextPath}/index.jsp">
                 33
             </a>

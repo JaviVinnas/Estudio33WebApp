@@ -40,35 +40,80 @@ CREATE TABLE existencias
     foreign key (usuario) references usuarios (dni) on delete restrict on update cascade,
     foreign key (tipo) references catalogo_tienda (id) on delete restrict on update cascade
 );
---insertamos cosas de prueba
+
+
+
+
+
+-----------insertamos datos de prueba
+
+--creamos dos usuarios
 insert into usuarios(dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario)
 VALUES ('39488522Y', 'Pepe', 'Flores Martinez', '1234567891011', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal');
 insert into usuarios(dni, nombre, apellidos, clave, correo, telefono, fecha_nacimiento, tipo_usuario, tarjeta)
 VALUES ('96586512A', 'Julio', 'Ju Martinez', 'xxd4hs3654s4hdc', 'pepe@gmail.com', 566891222, '2006-09-17', 'normal',
         '00A0-56DF-4S5C-33K7');
 
-
+--creamos 5 productos diferentes
 INSERT INTO catalogo_tienda(id, nombre, categoria, descripcion, precio)
-VALUES ('cam1', 'Camiseta 1', 'ropa', 'camiseta mazo cómoda', 12.3);
+VALUES ('cam', 'Camiseta con logo', 'ropa', 'Camiseta de algodón con el logo del estudio. Unisex-talla única', 8.5);
 INSERT INTO catalogo_tienda(id, nombre, categoria, descripcion, precio)
-VALUES ('diskfirm', 'Disco firmado 1', 'disco', 'Disco firmado a elegir', 20.0);
+VALUES ('exitos', 'Grandes éxitos del estudio', 'musica', 'LP de larga duración con los temas más famosos del estudio', 20.0);
+INSERT INTO catalogo_tienda(id, nombre, categoria, descripcion, precio)
+VALUES ('chapa', 'Chapa con logo', 'accesorios', 'Chapa de latón con el logo del estudio', 2.0);
+INSERT INTO catalogo_tienda(id, nombre, categoria, descripcion, precio)
+VALUES ('visera', 'Visera firmada', 'ropa', 'Gorra firmada por nuestro fundador: Alberto García', 5.0);
+INSERT INTO catalogo_tienda(id, nombre, categoria, descripcion, precio)
+VALUES ('sudadera', 'Sudadera con logo', 'ropa', 'Sudadera con el logo del estudio. 100% algodón.  Unisex-talla única', 17.5);
 
-
-insert into existencias(tipo)
-values ('cam1');
-insert into existencias(tipo)
-values ('cam1');
-insert into existencias(tipo)
-values ('cam1');
-insert into existencias(tipo, usuario)
-values ('cam1', '39488522Y');
-insert into existencias(tipo, usuario)
-values ('cam1', '39488522Y');
-insert into existencias(tipo, usuario)
-values ('cam1', '39488522Y');
-insert into existencias(tipo)
-values ('diskfirm');
-insert into existencias(tipo)
-values ('diskfirm');
-insert into existencias(tipo, usuario)
-values ('diskfirm', '96586512A');
+--insertamos 10 existencias de cada producto
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('cam');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('exitos');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('chapa');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('visera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');
+INSERT INTO existencias(tipo) values ('sudadera');

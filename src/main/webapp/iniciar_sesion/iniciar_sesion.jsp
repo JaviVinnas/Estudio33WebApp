@@ -29,12 +29,14 @@
     <form method="post" action="IniciarSesionServlet">
         <p>Introduce tu identificación (DNI):</p>
         <label>
-            <input type="text" required="required" id="dni" autocomplete="on" name="dni" pattern="^[0-9]{8}[A-Za-z]$" title="El DNI se compone de 8 números y una letra mayúscula/minúscula">
+            <input type="text" required="required" id="dni" autocomplete="on" name="dni" pattern="^[0-9]{8}[A-Za-z]$"
+                   title="El DNI se compone de 8 números y una letra mayúscula/minúscula">
         </label><br>
         <p>Introduce tu contraseña:</p>
         <label>
             <input type="password" required="required" name="password" autocomplete="on" id="password"
-                   pattern="[A-Za-z0-9_]{8,}" title="La contraseña solo puede tener caracteres alfanuméricos y guiones bajos">
+                   pattern="[A-Za-z0-9_]{8,}"
+                   title="La contraseña solo puede tener caracteres alfanuméricos y guiones bajos">
         </label><br>
         <!-- Revisar formulario como lo tiene el men -->
         <input type="submit" value='Iniciar sesión'>
@@ -48,7 +50,7 @@
 
 
 <span class="resgitrarse_desde_iniciar_sesion">¿Aún no estás registrado? Regístrate <a
-        href="index.jsp" class="link_registro">aquí</a></span>
+        href="${pageContext.request.contextPath}/registrarse/registrarse.jsp" class="link_registro">aquí</a></span>
 
 
 </body>
