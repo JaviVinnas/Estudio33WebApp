@@ -34,9 +34,8 @@
         </label><br>
         <p>Introduce tu contraseña:</p>
         <label>
-            <input type="password" required="required" name="password" autocomplete="on" id="password"
-                   pattern="[A-Za-z0-9_]{8,}"
-                   title="La contraseña solo puede tener caracteres alfanuméricos y guiones bajos">
+            <input type="password" required="required" name="password" autocomplete="on" pattern="\S{8,}"
+                   title="La contraseña tiene que tener mínimo 8 caracteres">
         </label><br>
         <!-- Revisar formulario como lo tiene el men -->
         <input type="submit" value='Iniciar sesión'>
