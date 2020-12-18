@@ -23,7 +23,7 @@ nav ul {
     font-size: 3.7vw;
 }
 
-.seccion_homepage_destacada{
+.seccion_homepage_destacada {
     display: inline-block;
     position: relative;
     font-family: 'Trueno ExtraBold Outline Italic', serif;
@@ -71,6 +71,7 @@ nav ul {
     position: relative;
     font-family: 'Trueno Bold', serif;
     font-size: 1.7vw;
+    margin-top: 0vw;
 }
 
 .seccion_normal a {
@@ -160,7 +161,9 @@ nav ul {
     border-width: .5vw;
     border-color: var(--color-acento);
     font-family: 'Trueno Bold', serif;
+    margin-top: 0;
 }
+
 .banner_usuario * {
     padding: .3vw;
 }

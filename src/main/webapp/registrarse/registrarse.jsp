@@ -70,8 +70,8 @@
     <section>
         <p>Introduce un teléfono (obligatorio):</p>
         <label>
-            <input type="number" required="required" name="telefono" autocomplete="on" pattern="^[0-9]{9}$"
-                   title="Un número de teléfono solo puede contener 9 cifras">
+            <input type="text" required="required" name="telefono" autocomplete="on" pattern="^[0-9]{9}$"
+                   title="Un número de teléfono solo puede contener 9 cifras numéricas">
         </label>
     </section>
     <section>
@@ -104,8 +104,8 @@
     </section>
     <section>
         <p>Introduce el código CSC de la tarjeta</p>
-        <input type="number" id="pin_tarjeta" name="pin_tarjeta" autocomplete="on" pattern="^[0-9]{3}$"
-               title="El pin de una tarjeta tiene entre 4 y 6 cifras numéricas">
+        <input type="text" id="pin_tarjeta" name="pin_tarjeta" autocomplete="on" pattern="^[0-9]{4,6}$"
+               title="El pin de una tarjeta tiene entre 4 y 6 cifras numéricas" disabled>
     </section>
     <input type="submit" value="Registrarse en Estudio33">
 </form>
