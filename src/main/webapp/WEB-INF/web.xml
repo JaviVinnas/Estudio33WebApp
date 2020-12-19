@@ -27,7 +27,7 @@
 
     <servlet>
         <servlet-name>IniciarSesionServlet</servlet-name>
-        <servlet-class>controlador.IniciarSesionServlet</servlet-class>
+        <servlet-class>controlador.AutenticacionServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "IniciarSesionServlet")
-public class IniciarSesionServlet extends HttpServletRedireccionable {
+@WebServlet(name = "AutenticacionServlet")
+public class AutenticacionServlet extends HttpServletRedireccionable {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //creamos una instancia de la base de datos
         BaseDatos bd = new BaseDatos(getServletContext(), response.getWriter());
