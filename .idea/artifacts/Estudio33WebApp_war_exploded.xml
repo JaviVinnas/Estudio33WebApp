@@ -21,6 +21,9 @@
       <element id="directory" name="SCRIPT_CREATE_POSTGRESQL">
         <element id="file-copy" path="$PROJECT_DIR$/database-docker/init.sql" />
       </element>
+      <element id="directory" name="ARCHIVOS_AJAX">
+        <element id="dir-copy" path="$PROJECT_DIR$/ajax-files" />
+      </element>
     </root>
   </artifact>
 </component>
