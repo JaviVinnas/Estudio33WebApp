@@ -77,7 +77,7 @@
     <section>
         <p>Introduce una fecha de nacimiento (obligatorio):</p>
         <label>
-            <input type="date" required="required" name="fecha_nacimiento" autocomplete="on"
+            <input type="date" required="required" name="fecha_nacimiento" min="1900-1-1" max="2000-1-1"
                    title="Recuerda que debes tener más de 18 años para registrarte">
         </label>
     </section>

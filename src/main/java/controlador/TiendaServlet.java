@@ -70,7 +70,6 @@ public class TiendaServlet extends HttpServletRedireccionable {
             sesion.setAttribute("catalogo", catalogo);
             //ponemos la opción de ir a la caja a null
             sesion.setAttribute("caja", null);
-
             //como seguimos en la misma página desactivamos las animaciones
             sesion.setAttribute("animar", false);
 

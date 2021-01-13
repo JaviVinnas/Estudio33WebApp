@@ -50,7 +50,7 @@ public class RegistrarseServlet extends HttpServletRedireccionable {
             if(!request.getParameter("tarjeta").equals("")){
                 usuario.setTarjeta(request.getParameter("tarjeta"));
             }
-            if (!request.getParameter("pin_tarjeta").equals("")) {
+            if (request.getParameter("pin_tarjeta") != null && !request.getParameter("pin_tarjeta").equals("")) {
                 usuario.setPinTarjeta(Integer.parseInt(request.getParameter("pin_tarjeta")));
             }
 

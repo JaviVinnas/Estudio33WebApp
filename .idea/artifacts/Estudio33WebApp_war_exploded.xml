@@ -14,16 +14,10 @@
           <element id="module-output" name="Estudio33WebApp" />
         </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Estudio33WebApp-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
       <element id="javaee-facet-resources" facet="Estudio33WebApp/web/Web" />
-      <element id="directory" name="CLASES_JAVA_SIN_COMPILAR">
-        <element id="dir-copy" path="$PROJECT_DIR$/src/main/java" />
-      </element>
-      <element id="directory" name="SCRIPT_CREATE_POSTGRESQL">
-        <element id="file-copy" path="$PROJECT_DIR$/database-docker/init.sql" />
-      </element>
-      <element id="directory" name="ARCHIVOS_AJAX">
-        <element id="dir-copy" path="$PROJECT_DIR$/ajax-files" />
-      </element>
     </root>
   </artifact>
 </component>

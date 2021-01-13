@@ -14,13 +14,25 @@ $('#tarjeta').on('input', function () {
     }
 })
 
+//un número de dos cifras como mucho se le añade un 0 si no fuera bien
+function numero_formatted(numero) {
+    if(numero.toString().length < 2){
+        return '0' + numero.toString()
+    }else {
+        return numero.toString()
+    }
+
+}
+
 $(document).ready(function () {
 
     let hoy = new Date();
 
-    let fecha_mas_antigua = (hoy.getFullYear()-120)+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
-    let fecha_mas_reciente = (hoy.getFullYear()-18)+'-'+(hoy.getMonth()+1)+'-'+hoy.getDate();
+    let fecha_mas_antigua = (hoy.getFullYear()-120)+'-'+ numero_formatted(hoy.getMonth()+1)+'-'+numero_formatted(hoy.getDate());
+    let fecha_mas_reciente = (hoy.getFullYear()-18)+'-'+numero_formatted(hoy.getMonth()+1)+'-'+numero_formatted(hoy.getDate());
     let selector_fecha = $('input[type="date"]');
+
+    console.log('cambiado')
 
     selector_fecha.attr("min", fecha_mas_antigua);
     selector_fecha.attr("max", fecha_mas_reciente);
